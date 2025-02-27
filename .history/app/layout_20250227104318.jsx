@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import { Analytics } from "@vercel/analytics/next";
 
 import { Providers } from "./providers";
 
@@ -7,6 +6,7 @@ import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
 import Footer from "@/components/Footer";
+import { Analytics } from "@vercel/analytics/next";
 export const metadata = {
   title: {
     default: siteConfig.name,
@@ -57,7 +57,7 @@ export default function RootLayout({ children }) {
       <body
         className={clsx(
           "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable,
+          fontSans.variable
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
