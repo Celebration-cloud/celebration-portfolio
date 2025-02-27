@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee {
+  white-space: nowrap;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.marquee-inner {
+  display: flex;
+  width: 200%; /* Adjust width to fit both sets of content */
+}
+
+.marquee-content {
+  display: flex;
+  width: 50%; /* Each content block takes up half the width */
+  animation: marquee 15s linear infinite;
+}
