@@ -1,69 +1,40 @@
 /* eslint-disable prettier/prettier */
 "use client";
 
-import Image from "next/image";
-
-import { siteConfig } from "@/config/site";
-
-const Skills = () => {
-
+export default function Skills({ data }) {
   return (
-    <div
-      className="flex justify-around items-center h-full pt-10 max-md:flex-col max-md:px-5"
-      id="scrollspyHeading2"
+    <section
+      className="py-20 bg-gray-50 dark:bg-gray-900"
+      id="scrollspyHeading3"
     >
-      <div className="w-2/5 h-full max-md:w-fit" data-aos="fade-right">
-        <Image
-          priority
-          alt="background"
-          className="h-full w-full object-left-top"
-          height={1080} // Set to the actual height of the image or desired height
-          src="/Hand coding-bro.svg"
-          width={1920} // Set to the actual width of the image or desired width
-        />
-      </div>
-      <div
-        className="w-2/5 text-md text-foreground-700 space-y-4 max-md:w-fit"
-        data-aos="fade-left"
-      >
-        <h1 className="text-2xl font-medium text-foreground-400">
-          Learn About Me
-        </h1>
-        <h4 className="text-4xl font-bold text-foreground-700">
-          3 Years Experience
-        </h4>
-        <p>
-          Results-driven Front-End Developer with 3+ years of experience
-          designing and developing responsive, userfriendly web applications
-          using React.js, Next.js, and Firebase. Procient in crafting intuitive
-          UI/UX experiences, optimizing web performance, and implementing SEO
-          best practices. Passionate about collaborative environments and
-          continuous improvement through agile methodologies.
-        </p>
-        <div className="">
-          {siteConfig.skills.map((skill, idx) => (
-            <div key={idx}>
-              <div className="flex justify-between items-center">
-                <h6> {skill.label} </h6>
-                <span>{skill.grade}</span>
-              </div>
-              <div className="progress">
+      <div className="container mx-auto px-4">
+        <h2 className="text-4xl font-bold mb-10 text-gray-900 dark:text-white">
+          Skills
+        </h2>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {data.map((skill, index) => (
+            <div key={index} className="flex flex-col">
+              <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
+                {skill.label}
+              </h3>
+
+              <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-5">
                 <div
-                  aria-valuemax="100"
-                  aria-valuemin="0"
-                  aria-valuenow="80"
-                  className="progress-bar bg-foreground-400"
-                  role="progressbar"
+                  className="h-5 rounded-full bg-indigo-600 dark:bg-indigo-400 transition-all duration-1000"
                   style={{ width: skill.grade }}
                 />
               </div>
-              <br />
+
+              {skill.tools && skill.tools.length > 0 && (
+                <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">
+                  {skill.tools.join(", ")}
+                </p>
+              )}
             </div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
-};
-
-export default Skills;
+}

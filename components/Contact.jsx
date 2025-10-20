@@ -8,7 +8,7 @@ const Contact = () => {
   return (
     <div
       className="flex flex-col md:flex-row items-center w-full h-full py-20 space-y-10 md:space-y-0 md:space-x-5 px-5"
-      id="scrollspyHeading6"
+      id="scrollspyHeading8"
     >
       <div className="w-full md:w-1/3 h-96" data-aos="fade-left">
         <Image

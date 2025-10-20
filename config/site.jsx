@@ -8,26 +8,21 @@ const portfolio_7 = "/Screenshot 2025-02-24 090248.png";
 const portfolio_8 = "/Screenshot 2025-02-24 091102.png";
 const portfolio_9 = "/Screenshot 2025-02-24 091509.png";
 const portfolio_10 = "/Screenshot 2025-10-20 011844.png";
+const portfolio_11 = "/Screenshot 2025-10-20 093155.png";
 
 export const siteConfig = {
   name: "Celebration Ojingulu Portfolio",
   description:
-    "Showcasing the portfolio of Celebration Ojingulu, featuring beautiful and professional websites created with a focus on design and functionality. Explore projects, skills, and contact information.",
+    "Portfolio of Celebration Ojingulu, showcasing web development projects, IT skills, and professional experience.",
   keywords: [
     "Celebration Ojingulu",
     "Portfolio",
     "Web Development",
-    "Web Design",
-    "Professional Websites",
-    "Projects",
-    "Skills",
-    "Frontend Developer",
-    "Backend Developer",
+    "IT Support",
+    "Excel",
+    "Next.js",
+    "Tailwind CSS",
   ],
-  author: "Celebration Ojingulu",
-  url: "https://www.celebration-portfolio.com",
-  image: "/portfolio-banner.jpg",
-  twitterUsername: "@celebrationojingulu",
   navItems: [
     {
       label: "Home",
@@ -47,11 +42,292 @@ export const siteConfig = {
     },
     {
       label: "Contact",
-      href: "#scrollspyHeading6",
+      href: "#scrollspyHeading8",
+    },
+  ],
+  author: "Celebration Ojingulu",
+  url: "https://www.celebration-portfolio.com",
+  image: "/portfolio-banner.jpg",
+  twitterUsername: "@celebrationojingulu",
+  navItems: [
+    { label: "Home", href: "#scrollspyHeading1" },
+    { label: "About", href: "#scrollspyHeading2" },
+    { label: "Experience", href: "#scrollspyHeading4" },
+    { label: "Portfolio", href: "#scrollspyHeading5" },
+    { label: "Contact", href: "#scrollspyHeading6" },
+  ],
+
+  about: {
+    name: "Celebration Ojingulu Ifechukwudeni",
+    title: "Front-End Developer & IT Specialist",
+    contact: {
+      email: "ojinguluc@gmail.com",
+      phone: "+2349014194307",
+      address: "4 Prince Kosoko Kings Street",
+    },
+    summary: [
+      "Detail-oriented and adaptable IT professional with hands-on experience in front-end web development, data analysis (Excel), and IT support.",
+      "Skilled in HTML, CSS, JavaScript, Next.js, Tailwind CSS, troubleshooting, and Microsoft 365 administration.",
+      "Strong communication, teamwork, and problem-solving skills to drive productivity and user satisfaction.",
+    ],
+  },
+
+  skills: [
+    {
+      label: "Frontend Development",
+      tools: ["HTML5", "CSS3", "JavaScript", "React.js", "Next.js"],
+      grade: "85%",
+    },
+    {
+      label: "Styling & UX",
+      tools: [
+        "Tailwind CSS",
+        "Framer Motion",
+        "Responsive Design",
+        "Cross-Browser Testing",
+      ],
+      grade: "85%",
+    },
+    {
+      label: "Data Analysis",
+      tools: ["Microsoft Excel: PivotTables, Charts, Advanced Formulas"],
+      grade: "90%",
+    },
+    {
+      label: "IT Support & Admin",
+      tools: ["Troubleshooting", "LAN/WAN Setup", "Microsoft 365 Admin"],
+      grade: "85%",
+    },
+    {
+      label: "Database & Backend Basics",
+      tools: ["SQL", "API Integration"],
+      grade: "70%",
+    },
+    {
+      label: "Soft Skills",
+      tools: [
+        "Communication",
+        "Teamwork",
+        "Adaptability",
+        "Attention to Detail",
+        "Problem-Solving",
+        "Time Management",
+      ],
+      grade: "90%",
+    },
+  ],
+
+  skillLogos: [
+    {
+      label: "HTML5",
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+    },
+    {
+      label: "CSS3",
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+    },
+    {
+      label: "JavaScript",
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+    },
+    {
+      label: "React.js",
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+    },
+    {
+      label: "Next.js",
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+    },
+    {
+      label: "Tailwind CSS",
+      src: "https://www.svgrepo.com/show/374118/tailwind.svg",
+    },
+    {
+      label: "Excel",
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg",
+    },
+    {
+      label: "Git",
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+    },
+    {
+      label: "GitHub",
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+    },
+    {
+      label: "Microsoft 365",
+      src: "https://commons.wikimedia.org/wiki/Special:FilePath/Microsoft_365_%282022%29.svg",
+    },
+  ],
+
+  experience: [
+    {
+      company: "PalmPay Ltd",
+      title: "IT Service Specialist",
+      date: "Jan 2024 - Feb 2025",
+      description: [
+        "Managed Microsoft 365 accounts, mail flow, and domain settings, ensuring 99% uptime.",
+        "Achieved 95% first-contact resolution; cut ticket backlog by 30% through efficient troubleshooting.",
+        "Authored technical documentation and debugged front-end issues to enhance team productivity.",
+        "Analyzed asset data in Excel, improving inventory accuracy by 25% and streamlining maintenance schedules.",
+      ],
+      color: "#1E88E5",
+    },
+    {
+      company: "GIIT Africa",
+      title: "IT Intern",
+      date: "Jun 2022 - Aug 2023",
+      description: [
+        "Built SEO-friendly apps with Next.js (SSR, API Routes, Routing), reducing load times by 30%.",
+        "Boosted engagement by 20% using API routes, ISR, and image optimization.",
+        "Supported IT operations and troubleshooting, improving team efficiency.",
+      ],
+      color: "#9C27B0",
+    },
+  ],
+
+  education: [
+    {
+      institution: "Institut Universitaire du Bénin (IUB)",
+      degree: "BSc in Information Technology",
+      year: "2020-2023",
+    },
+    // { institution: "Roseville College", degree: "NECO", year: "2020" },
+    // { institution: "Roseville College", degree: "WAEC", year: "2021" },
+    {
+      institution: "Udemy",
+      degree: "React, Next.js and Front-End Development",
+      year: "2024",
+      license: "UC-8b915820-6b25-4138-bce3-4f58d03c0085",
+    },
+  ],
+
+  portfolio: [
+    {
+      title: "Linkcon News",
+      image: portfolio_10,
+      tools: "Next.js, Tailwind CSS, React",
+      description: [
+        "Built a news platform with real-time content management and analytics dashboards.",
+        "Implemented server-side rendering and dynamic routing, reducing load times by 25%.",
+        "Enhanced user engagement by optimizing images, API routes, and ISR.",
+      ],
+      href: "https://linkconn-news.vercel.app/",
+    },
+    {
+      title: "Sustainable Dashboard",
+      image: portfolio_9,
+      tools: "Next.js, Tailwind CSS",
+      description: [
+        "Created a sustainability dashboard for monitoring key metrics.",
+        "Used dynamic data visualization to track progress and generate reports.",
+        "Optimized for responsive design across devices.",
+      ],
+      href: "https://sustainability-dashboard-one.vercel.app/",
+    },
+    {
+      title: "Interactive Booking Form",
+      image: portfolio_8,
+      tools: "Next.js, React",
+      description: [
+        "Developed an interactive booking form with validation and dynamic updates.",
+        "Integrated user-friendly UI components with Tailwind CSS.",
+        "Reduced booking errors and improved submission efficiency.",
+      ],
+      href: "https://interactive-booking-form.vercel.app/",
+    },
+    {
+      title: "Country Search API",
+      image: portfolio_1,
+      tools: "React.js, REST API",
+      description: [
+        "Built a searchable country info platform using React and REST APIs.",
+        "Implemented dynamic filtering and responsive layouts for better UX.",
+        "Improved data load performance by optimizing API calls.",
+      ],
+      href: "https://country-search-vhrj.onrender.com/",
+    },
+    {
+      title: "E-commerce Product Page",
+      image: portfolio_2,
+      tools: "React.js, CSS",
+      description: [
+        "Created an e-commerce product page with add-to-cart and delete features.",
+        "Ensured cross-browser compatibility and responsive design.",
+        "Enhanced UI/UX through clean layout and interactive components.",
+      ],
+      href: "https://e-commerce-product-page-t3zp.onrender.com/",
+    },
+    {
+      title: "Trip Add To List",
+      image: portfolio_3,
+      tools: "React.js, CSS",
+      description: [
+        "Developed a trip list management app with add, delete, and filter functions.",
+        "Included statistics and summary features to track trips effectively.",
+        "Optimized performance and responsiveness across devices.",
+      ],
+      href: "https://trip-add-to-list.onrender.com/",
+    },
+    {
+      title: "React Quiz",
+      image: portfolio_4,
+      tools: "React.js",
+      description: [
+        "Built a quiz app with interactive questions and score tracking.",
+        "Implemented state management for smooth user experience.",
+        "Enhanced engagement through animations and instant feedback.",
+      ],
+      href: "https://react-quiz-d5oy.onrender.com/",
+    },
+    {
+      title: "To-Do List",
+      image: portfolio_5,
+      tools: "React.js, CSS",
+      description: [
+        "Created a To-Do List app with add, delete, and cross-check functionalities.",
+        "Included task filtering and statistics for user convenience.",
+        "Designed a responsive interface with clean UX.",
+      ],
+      href: "https://to-do-list-topaz-psi-72.vercel.app/",
+    },
+    {
+      title: "Calculator",
+      image: portfolio_6,
+      tools: "React.js",
+      description: [
+        "Built a responsive calculator web app with clean UI.",
+        "Optimized for mobile and desktop usage.",
+        "Tested for accurate calculations and user-friendly experience.",
+      ],
+      href: "https://celebration-calculator.onrender.com/",
+    },
+    {
+      title: "E-commerce Website",
+      image: portfolio_7,
+      tools: "React.js, CSS",
+      description: [
+        "Developed a full e-commerce website with product catalog and shopping cart.",
+        "Implemented responsive design and cross-browser support.",
+        "Improved user engagement and checkout efficiency.",
+      ],
+      href: "https://folakits.onrender.com/",
+    },
+    {
+      title: "Linkcon - E-commerce Website",
+      image: portfolio_11, // add your image import for Linkcon here
+      tools: "Next.js, React, Tailwind CSS, Stripe",
+      description: [
+        "Developed a modern e-commerce platform with responsive design and smooth navigation.",
+        "Integrated Stripe for secure payments and Clerk for authentication.",
+        "Implemented dark/light mode, wishlist, cart, and speed dial navigation.",
+        "Optimized performance and SEO for fast, discoverable pages.",
+      ],
+      href: "https://linkcon-web.vercel.app/",
     },
   ],
   links: {
-    github: "https://github.com/heroui-inc/heroui",
+    github: "https://github.com/Celebration-cloud",
     twitter: "https://twitter.com/hero_ui",
     docs: "https://heroui.com",
     discord: "https://discord.gg/9b6yyZKmH4",
@@ -72,151 +348,6 @@ export const siteConfig = {
     site: "@celebrationojingulu",
     cardType: "summary_large_image",
   },
-  skills: [
-    { label: "Frontend Frameworks: React.js, Next.js", grade: "80%" },
-    {
-      label: "Styling & Animations: Tailwind CSS, Framer Motion",
-      grade: "80%",
-    },
-    {
-      label: "Core Web Technologies: HTML5, CSS3, JavaScript (ES6+)",
-      grade: "80%",
-    },
-    { label: "Version Control: Git, GitHub", grade: "70%" },
-    {
-      label: "Performance & Optimization: SEO, Responsive Design",
-      grade: "90%",
-    },
-    {
-      label:
-        " Collaboration & Tools: Agile Methodologies, Cross-Team Collaboration",
-      grade: "80%",
-    },
-    { label: "Problem-solving", grade: "90%" },
-    { label: "Good Communication", grade: "90%" },
-  ],
-  skillLogo: [
-    { label: "React.js", src: "/react-logo.png" },
-    { label: "Next.js", src: "/nextjs-logo.png" },
-    { label: "Tailwind CSS", src: "/tailwindcss-logo.png" },
-    // { label: "Framer Motion", src: "/framer-motion-logo.png" },
-    { label: "HTML5", src: "/html5-logo.png" },
-    { label: "CSS3", src: "/css3-logo.png" },
-    { label: "JavaScript", src: "/javascript-logo.png" },
-    { label: "Git", src: "/git-logo.png" },
-    { label: "GitHub", src: "/github-logo.png" },
-    { label: "GitHub", src: "/redux-logo.png" },
-  ],
-  experience: [
-    {
-      company: "GIIT Africa",
-      title: "Web Development Intern",
-      date: "Jan 2024 - Sep 2025",
-      description: [
-        `Developed responsive websites using HTML, CSS, and JavaScript, improving
-      cross-browser compatibility and user accessibility.`,
-        ` Collaborated with senior developers to implement SEO strategies, driving a
-      15% increase in organic traffic.`,
-        `Created comprehensive documentation for web projects, streamlining team
-      workflows and enhancing project clarity.`,
-        `Actively participated in daily stand-ups and sprint planning, improving
-      project efficiency and on-time delivery.`,
-      ],
-      icon: "pi pi-shopping-cart",
-      color: "#9C27B0",
-    },
-    {
-      company: "GIIT Africa",
-      title: "Front-End Developer Intern",
-      date: "Jun 2022 - Dec 2023",
-      description: [
-        `Built and optimized web applications using React.js and Next.js, enhancing
-      load speeds and user satisfaction.`,
-        `Designed and implemented secure authentication systems with Firebase,
-      increasing application security by 30%.`,
-        `Collaborated with designers to integrate Tailwind CSS, delivering
-      consistent and visually appealing UI components.`,
-        ` Utilized Framer Motion to create interactive animations, improving user
-      engagement by 20%.`,
-        `Conducted code reviews and adhered to agile development practices,
-      maintaining high-quality standards.`,
-      ],
-      icon: "pi pi-shopping-cart",
-      color: "#9C27B0",
-    },
-  ],
-  portfolio: [
-    {
-      title: "Country Search api",
-      image: portfolio_1,
-      tools: "react",
-      description: "Ability to search for any country.",
-      href: "https://country-search-vhrj.onrender.com/",
-    },
-    {
-      title: "E-commerce Product Page",
-      image: portfolio_2,
-      tools: "react",
-      description: "Ability to put items to cart and delete them.",
-      href: "https://e-commerce-product-page-t3zp.onrender.com/",
-    },
-    {
-      title: "Trip Add To List ",
-      image: portfolio_3,
-      tools: "react",
-      description:
-        "Ability to add items to the list, cross check, filter and delete them. With statistics included",
-      href: "https://trip-add-to-list.onrender.com",
-    },
-    {
-      title: "React Quiz",
-      image: portfolio_4,
-      tools: "react",
-      description: "A quiz app",
-      href: "https://react-quiz-d5oy.onrender.com/",
-    },
-    {
-      title: "T0-Do List",
-      image: portfolio_5,
-      tools: "react",
-      description: "A To-Do List site",
-      href: "https://to-do-list-topaz-psi-72.vercel.app/",
-    },
-    {
-      title: "Calculator",
-      image: portfolio_6,
-      tools: "react",
-      description: "A calcualator site",
-      href: "https://celebration-calculator.onrender.com/",
-    },
-    {
-      title: "E-commerce Website",
-      image: portfolio_7,
-      tools: "react",
-      description: "An ecommerce website",
-      href: "https://folakits.onrender.com/",
-    },
-    {
-      title: "Interactive Booking Form",
-      image: portfolio_8,
-      tools: "next",
-      description: "An interactive booking form",
-      href: "https://interactive-booking-form.vercel.app/",
-    },
-    {
-      title: "Sustainable Dashboard",
-      image: portfolio_9,
-      tools: "next",
-      description: "A sustainable dashboard",
-      href: "https://sustainability-dashboard-one.vercel.app/",
-    },
-    {
-      title: "Linkcon News",
-      image: portfolio_10, // import your screenshot first
-      tools: "Next",
-      description:
-        "A news platform with analytics dashboards and real-time content management.",
-      href: "https://linkconn-news.vercel.app//",
-    },
-  ],
+
+  references: [{ name: "Ojingulu Regina", contact: "+234 806 375 0779" }],
 };

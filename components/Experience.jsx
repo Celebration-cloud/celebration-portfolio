@@ -1,73 +1,48 @@
 /* eslint-disable prettier/prettier */
 "use client";
 
-import { Timeline } from "primereact/timeline";
-import { Card } from "primereact/card";
-
-import { siteConfig } from "@/config/site";
-
-const Experience = () => {
-  const descriptionContent = (item) => {
-    return (
-      <Card subTitle={item.title} title={item.company}>
-        <ul className="list-disc text-left ml-0 px-2 ">
-          {item.description.map((desc, idx) => (
-            <li key={idx} className="pl-0 ml-0">
-              {desc}
-            </li>
-          ))}
-        </ul>
-      </Card>
-    );
-  };
-  const descriptionContentMobile = (item) => {
-    return (
-      <div className="hidden max-md:block">
-        <p className="text-foreground-700 text-xl max-md:text-lg max-md:my-5">
-          {item.date}
-        </p>
-        <Card subTitle={item.title} title={item.company}>
-          <ul className="list-disc text-left ml-0 px-2 ">
-            {item.description.map((desc, idx) => (
-              <li key={idx} className="pl-0 ml-0">
-                {desc}
-              </li>
-            ))}
-          </ul>
-        </Card>
-      </div>
-    );
-  };
-
-
+export default function Experience({ data }) {
   return (
-    <div
-      className="place-content-center space-y-10 mx-5 max-md:mx-0"
+    <section
+      className="py-20 bg-gray-50 dark:bg-gray-900"
       id="scrollspyHeading4"
     >
-      <header className="flex flex-col items-center justify-center max-md:px-5">
-        <h2 className="text-foreground-400 text-2xl font-medium">MY RESUME</h2>
-        <h5 className="text-foreground-700 text-5xl font-bold text-center max-md:text-3xl">
-          Working Experience
-        </h5>
-      </header>
-      <div className="flex justify-around text-inherit items-center max-md:hidden">
-        <Timeline
-          align="alternate"
-          className="w-full max-md:w-auto"
-          content={descriptionContent}
-          opposite={(item) => (
-            <p className="text-foreground-700 text-xl max-md:text-lg max-md:my-5">
-              {item.date}
-            </p>
-          )}
-          value={siteConfig.experience}
-        />
-      </div>
-      {descriptionContentMobile(siteConfig.experience[0])}
-      {descriptionContentMobile(siteConfig.experience[1])}
-    </div>
-  );
-};
+      <div className="container mx-auto px-4">
+        <h2 className="text-4xl font-bold mb-12 text-gray-900 dark:text-white">
+          Experience
+        </h2>
 
-export default Experience;
+        <div className="relative border-l-4 border-indigo-600 dark:border-indigo-400 pl-4 md:pl-8 space-y-12">
+          {data.map((job, index) => (
+            <div
+              key={index}
+              className={`relative p-6 rounded-xl shadow-md dark:shadow-lg transition-all duration-300
+                ${index % 2 === 0 ? "bg-white/90 dark:bg-gray-800/90" : "bg-indigo-50/60 dark:bg-indigo-900/60"}
+                hover:shadow-xl hover:scale-[1.02] md:ml-${index % 2 === 0 ? "0" : "12"} md:mr-${index % 2 === 0 ? "12" : "0"}
+              `}
+            >
+              {/* Timeline marker */}
+              <div
+                className="absolute -left-6 top-6 w-4 h-4 rounded-full shadow-md border-2 border-white dark:border-gray-800"
+                style={{ backgroundColor: job.color }}
+              />
+
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                {job.title}
+              </h3>
+              <p className="text-indigo-600 dark:text-indigo-400 font-medium mb-3">
+                {job.company} | {job.date}
+              </p>
+
+              <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1">
+                {job.description.map((point, i) => (
+                  <li key={i}>{point}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
