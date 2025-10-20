@@ -7,6 +7,7 @@ const portfolio_6 = "/image.png";
 const portfolio_7 = "/Screenshot 2025-02-24 090248.png";
 const portfolio_8 = "/Screenshot 2025-02-24 091102.png";
 const portfolio_9 = "/Screenshot 2025-02-24 091509.png";
+const portfolio_10 = "/Screenshot 2025-10-20 011844.png";
 
 export const siteConfig = {
   name: "Celebration Ojingulu Portfolio",
@@ -110,7 +111,7 @@ export const siteConfig = {
     {
       company: "GIIT Africa",
       title: "Web Development Intern",
-      date: "Jan 2021 - Sep 2023",
+      date: "Jan 2024 - Sep 2025",
       description: [
         `Developed responsive websites using HTML, CSS, and JavaScript, improving
       cross-browser compatibility and user accessibility.`,
@@ -127,7 +128,7 @@ export const siteConfig = {
     {
       company: "GIIT Africa",
       title: "Front-End Developer Intern",
-      date: "Jun 2020 - Dec 2020",
+      date: "Jun 2022 - Dec 2023",
       description: [
         `Built and optimized web applications using React.js and Next.js, enhancing
       load speeds and user satisfaction.`,
@@ -208,6 +209,14 @@ export const siteConfig = {
       tools: "next",
       description: "A sustainable dashboard",
       href: "https://sustainability-dashboard-one.vercel.app/",
+    },
+    {
+      title: "Linkcon News",
+      image: portfolio_10, // import your screenshot first
+      tools: "Next",
+      description:
+        "A news platform with analytics dashboards and real-time content management.",
+      href: "https://linkconn-news.vercel.app//",
     },
   ],
 };
