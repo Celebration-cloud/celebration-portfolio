@@ -184,6 +184,17 @@ export const siteConfig = {
       ],
       color: "#9C27B0",
     },
+    {
+      company: "Adesa HQ",
+      title: "Website Developer Intern",
+      date: "Dec 2025 - Till Date",
+      description: [
+        "Built SEO-focused web apps with Next.js using SSR, API Routes, routing, and SEO best practices.",
+        "Improved page load speed by 30% through image optimization and performance tuning.",
+        "Handled IT support and troubleshooting tasks to improve internal workflow efficiency.",
+      ],
+      color: "#9C27B9",
+    },
   ],
 
   education: [
