@@ -6,36 +6,39 @@ import { ExternalLink } from "lucide-react";
 export default function VideoShowcase() {
   const featuredVideos = [
     {
-      title: "Adesa HQ Brand Campaign",
-      client: "Adesa HQ",
-      type: "Promotional Video",
-      duration: "2:45",
-      tools: ["DaVinci Resolve", "Color Grading", "Sound Design"],
+      title: "Adj Client Testimonial",
+      client: "Adj",
+      type: "Testimonial Video",
+      duration: "TBD", // Update with actual duration (e.g., "1:30")
+      tools: ["DaVinci Resolve", "Audio Mixing", "Color Grading"],
       description:
-        "Produced a full brand campaign video featuring motion graphics, color grading, and audio cleanup. Delivered across web and social platforms.",
-      embedUrl: "https://www.youtube.com/embed/YOUR_VIDEO_ID_1",
+        "Produced a compelling testimonial video capturing authentic client feedback. Focused on clear audio, engaging pacing, and visual storytelling to build trust and credibility for the brand.",
+      embedUrl:
+        "https://drive.google.com/file/d/1lmLXjvNT6qX8LxOQV6WLmqtRzKQOsZjI/preview",
       thumbnail: "/video-thumb-1.jpg",
     },
     {
-      title: "PalmPay Product Launch",
-      client: "PalmPay Ltd",
-      type: "Social Media Reel",
-      duration: "0:45",
-      tools: ["DaVinci Resolve", "CapCut", "Short-form Editing"],
+      title: "Fabtops Founder Interview",
+      client: "Fabtops",
+      type: "Interview Video",
+      duration: "TBD", // Update with actual duration
+      tools: ["DaVinci Resolve", "Multi-cam Editing", "Color Grading"],
       description:
-        "Created a fast-paced social media reel for product launch. Optimized for Instagram Reels and TikTok with dynamic cuts and trending audio.",
-      embedUrl: "https://www.youtube.com/embed/YOUR_VIDEO_ID_2",
+        "Directed and edited an in-depth interview with the owner of Fabtops, highlighting their entrepreneurial journey and brand vision. Delivered a polished narrative that connects the audience with the heart of the brand.",
+      embedUrl:
+        "https://drive.google.com/file/d/1_IwEY4uys9QdB1iYw1Ad1ITFkUFkGoRp/preview",
       thumbnail: "/video-thumb-2.jpg",
     },
     {
-      title: "Yungola Transport Promo",
-      client: "Yungola Transport",
-      type: "Corporate Video",
-      duration: "1:30",
-      tools: ["DaVinci Resolve", "Color Grading", "Audio Editing"],
+      title: "Fabtops Promotional Ad",
+      client: "Fabtops",
+      type: "Ads Video",
+      duration: "TBD", // Update with actual duration
+      tools: ["DaVinci Resolve", "Motion Graphics", "Sound Design"],
       description:
-        "Produced a corporate promotional video showcasing fleet and services. Focused on professional color grading and clean audio mix.",
-      embedUrl: "https://www.youtube.com/embed/YOUR_VIDEO_ID_3",
+        "Created a high-energy promotional ad for Fabtops to showcase their latest products. Utilized dynamic transitions, color grading, and upbeat pacing to drive engagement and boost conversions across social platforms.",
+      embedUrl:
+        "https://drive.google.com/file/d/1Mxi6cOAbcY0sp4K8SSr6QfoExHq_nP9w/preview",
       thumbnail: "/video-thumb-3.jpg",
     },
   ];
@@ -141,7 +144,7 @@ export default function VideoShowcase() {
         <div className="flex justify-center">
           <a
             className="inline-flex items-center gap-3 rounded-none bg-white/5 px-8 py-4 text-sm font-bold uppercase tracking-wider text-white hover:bg-brand-teal hover:text-black transition-all duration-300 group"
-            href="https://www.youtube.com/playlist?list=YOUR_PLAYLIST_ID"
+            href="https://drive.google.com/drive/folders/1adELVMv1P4RQu6VHvFEOPRKk_dx8hClg?usp=sharing"
             rel="noopener noreferrer"
             target="_blank"
           >

@@ -41,9 +41,9 @@ export const Navbar = () => {
         >
           <motion.div
             className="w-9 h-9 rounded-none bg-brand-teal flex items-center justify-center text-black font-black text-lg"
+            transition={{ type: "spring", stiffness: 400, damping: 25 }}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            transition={{ type: "spring", stiffness: 400, damping: 25 }}
           >
             <Home size={18} strokeWidth={3} />
           </motion.div>
@@ -71,16 +71,16 @@ export const Navbar = () => {
                 {/* Brutalist accent: Solid sharp block for hover (no borders) */}
                 {isHovered && (
                   <motion.span
-                    layoutId="navbarHoverPill"
                     className="absolute inset-0 bg-white/10 rounded-none -z-10"
+                    layoutId="navbarHoverPill"
                     transition={{ type: "spring", stiffness: 350, damping: 30 }}
                   />
                 )}
                 {/* Active state: Sharp solid underline */}
                 {isActive && !isHovered && (
                   <motion.span
-                    layoutId="navbarActiveDot"
                     className="absolute bottom-1 left-4 right-4 h-[2px] bg-brand-teal rounded-none"
+                    layoutId="navbarActiveDot"
                     transition={{ type: "spring", stiffness: 350, damping: 30 }}
                   />
                 )}
@@ -92,17 +92,6 @@ export const Navbar = () => {
 
         {/* Desktop Right Side: Socials + Dark Mode Toggle */}
         <div className="hidden lg:flex items-center gap-2">
-          {/* Dark Mode Toggle */}
-          <motion.button
-            onClick={() => setIsDark(!isDark)}
-            aria-label="Toggle Dark Mode"
-            className="w-9 h-9 rounded-none bg-white/5 flex items-center justify-center text-brand-gray hover:text-white hover:bg-white/10 transition-colors"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            {isDark ? <Sun size={16} /> : <Moon size={16} />}
-          </motion.button>
-
           {/* Socials */}
           {[
             {
@@ -140,8 +129,8 @@ export const Navbar = () => {
         <motion.button
           aria-label={isOpen ? "Close Menu" : "Open Menu"}
           className="p-2 text-white hover:text-brand-teal transition-colors z-10 relative lg:hidden rounded-none bg-white/5 hover:bg-white/10"
-          onClick={() => setIsOpen(!isOpen)}
           whileTap={{ scale: 0.98 }}
+          onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </motion.button>
@@ -216,14 +205,6 @@ export const Navbar = () => {
                     </a>
                   ))}
                 </div>
-                {/* Mobile Dark Mode Toggle */}
-                <button
-                  onClick={() => setIsDark(!isDark)}
-                  aria-label="Toggle Dark Mode"
-                  className="w-10 h-10 rounded-none bg-white/5 flex items-center justify-center text-brand-gray hover:text-white hover:bg-white/10 transition-colors"
-                >
-                  {isDark ? <Sun size={18} /> : <Moon size={18} />}
-                </button>
               </div>
             </nav>
           </motion.div>
