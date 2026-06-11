@@ -3,6 +3,7 @@ import Link from "next/link";
 import {
   ArrowUpRight,
   Briefcase,
+  Download,
   FolderKanban,
   Mail,
   UserRound,
@@ -61,6 +62,28 @@ export default function Home() {
               frontend development and video production. Open to remote roles
               worldwide.
             </p>
+
+            {/* Brutalist CTA Buttons */}
+            <div className="mt-10 flex flex-wrap gap-4">
+              {/* Primary: Download CV */}
+              <a
+                className="group inline-flex items-center gap-3 rounded-none bg-brand-teal px-7 py-4 text-xs font-bold uppercase tracking-[0.2em] text-black transition-all duration-300 hover:bg-white hover:translate-x-1"
+                download="Celebration_Ojingulu_CV.pdf"
+                href="/Celebration_Ojingulu_CV.pdf"
+              >
+                Download CV
+                <Download className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5" />
+              </a>
+
+              {/* Secondary: Get in Touch */}
+              <Link
+                className="group inline-flex items-center gap-3 rounded-none border border-white/10 px-7 py-4 text-xs font-bold uppercase tracking-[0.2em] text-white transition-all duration-300 hover:bg-white/5 hover:border-white/20"
+                href="/contact"
+              >
+                Get in touch
+                <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
+              </Link>
+            </div>
           </div>
 
           {/* Right: The Picture (Brutalist Accent) */}
