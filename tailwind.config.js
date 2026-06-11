@@ -9,9 +9,20 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        brand: {
+          teal: '#00E5FF',
+          dark: '#0A1920',
+          border: '#1A3338',
+          gray: '#A0AAB2',
+        },
+      },
       fontFamily: {
         sans: ["var(--font-sans)"],
         mono: ["var(--font-mono)"],
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },
     },
   },

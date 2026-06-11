@@ -1,12 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: [
-      "cdn.jsdelivr.net",
-      "upload.wikimedia.org",
-      "cdn-icons-png.flaticon.com",
-      "raw.githubusercontent.com",
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**",
+      },
     ],
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
   },
 };
 

@@ -1,12 +1,12 @@
 import clsx from "clsx";
-import { Analytics } from "@vercel/analytics/next";
+import { Analytics } from "@vercel/analytics/react";
 
 import { Providers } from "./providers";
 
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
-import { Navbar } from "@/components/navbar";
 import Footer from "@/components/Footer";
+import { Navbar } from "@/components/navbar";
 export const metadata = {
   title: {
     default: siteConfig.name,
@@ -56,14 +56,14 @@ export default function RootLayout({ children }) {
       </head>
       <body
         className={clsx(
-          "min-h-screen bg-background font-sans antialiased",
+          "min-h-screen bg-[#050505] font-sans antialiased text-white selection:bg-brand-teal selection:text-black",
           fontSans.variable,
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <div className="relative h-full">
             <Navbar />
-            <main className="mx-auto max-w-7xl">{children}</main>
+            <main className="mx-auto max-w-7xl pt-10">{children}</main>
             <Footer />
           </div>
         </Providers>

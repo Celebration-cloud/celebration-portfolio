@@ -1,78 +1,43 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable react/no-unknown-property */
 "use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function Tools({ data }) {
   return (
-    <section
-      className="py-20 bg-gray-50 dark:bg-gray-900"
-      id="scrollspyHeading3"
-    >
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold mb-10 text-gray-900 dark:text-white text-center md:text-left">
-          Tech Stack
-        </h2>
+    <section className="py-16 px-6 md:px-12 lg:px-24 relative bg-[#050505] border-t border-white/5">
+      <div className="max-w-6xl mx-auto">
+        <p className="text-xs font-mono uppercase tracking-[0.3em] text-brand-teal mb-8">
+          03 — Ecosystem
+        </p>
 
-        {/* Marquee Container */}
-        <div className="overflow-hidden relative">
-          <div className="flex whitespace-nowrap animate-marquee">
-            {[...data, ...data].map((tool, index) => (
-              <div
-                key={index}
-                className="flex flex-col items-center justify-center space-y-2 w-20 sm:w-24 md:w-28 mx-4 shrink-0"
+        {/* Brutalist Structural Grid: Uses a 1px gap with a background color to create dividing lines */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-px bg-white/10">
+          {data &&
+            data.map((tool, index) => (
+              <motion.div
+                key={tool.label}
+                className="bg-[#050505] aspect-square flex flex-col items-center justify-center gap-3 group hover:bg-white/[0.02] transition-colors duration-300"
+                initial={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                viewport={{ once: true }}
+                whileInView={{ opacity: 1, scale: 1 }}
               >
-                <Image
-                  alt={tool.label}
-                  className={`object-contain transition-transform duration-300 hover:scale-110 ${
-                    tool.label === "GitHub" ? "dark:invert" : ""
-                  }`}
-                  height={64}
-                  src={tool.src}
-                  width={64}
-                />
-                <span className="text-xs sm:text-sm text-gray-800 dark:text-gray-200 text-center">
+                <div className="relative w-10 h-10 grayscale group-hover:grayscale-0 transition-all duration-500">
+                  <Image
+                    fill
+                    alt={tool.label}
+                    className="object-contain"
+                    src={tool.src}
+                  />
+                </div>
+                <span className="text-[10px] font-mono uppercase tracking-widest text-white/30 group-hover:text-brand-teal transition-colors">
                   {tool.label}
                 </span>
-              </div>
+              </motion.div>
             ))}
-          </div>
         </div>
       </div>
-
-      {/* Animation Styles */}
-      <style jsx>{`
-        @keyframes marquee {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-
-        .animate-marquee {
-          display: flex;
-          animation: marquee 40s linear infinite;
-          will-change: transform;
-        }
-
-        .animate-marquee:hover {
-          animation-play-state: paused;
-        }
-
-        @media (max-width: 1024px) {
-          .animate-marquee {
-            animation-duration: 50s;
-          }
-        }
-
-        @media (max-width: 640px) {
-          .animate-marquee {
-            animation-duration: 60s;
-          }
-        }
-      `}</style>
     </section>
   );
 }

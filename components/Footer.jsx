@@ -1,64 +1,75 @@
-/* eslint-disable prettier/prettier */
-"use client";
+import { Github, Linkedin, MessageCircle, ArrowUp } from "lucide-react";
 
-import { Link } from "@heroui/link";
-
-const Footer = () => {
+export default function Footer() {
   return (
-    <footer className="w-full bg-red-600 dark:bg-red-800 text-white py-12 px-6 flex flex-col items-center gap-6">
-      {/* Name */}
-      <h2 className="text-3xl sm:text-4xl font-bold text-center">
-        Ojingulu Celebration
-      </h2>
+    // Slightly darker than the main #090e11 background to visually ground the page
+    <footer className="bg-[#050505] border-t border-white/10 px-6 pt-16 pb-8">
+      <div className="max-w-6xl mx-auto">
+        {/* Top Section: Primary Footer Content */}
+        <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-12 pb-12 border-b border-white/5">
+          {/* Left: Typography First Hierarchy */}
+          <div>
+            <p className="text-xs font-mono uppercase tracking-[0.3em] text-brand-teal mb-3">
+              Get in touch
+            </p>
+            <h3 className="text-3xl md:text-4xl font-bold tracking-tighter text-white uppercase leading-[0.9]">
+              Let's build <br /> something sharp.
+            </h3>
+          </div>
 
-      {/* Address */}
-      <p className="text-center text-sm sm:text-base md:text-lg text-white/90 max-w-md">
-        4, Prince Kosoko King&lsquo;s Street, Meiran, Lagos, Nigeria
-      </p>
+          {/* Right: Brutalist Social Icons */}
+          <div className="flex items-center gap-2">
+            {[
+              {
+                Icon: Github,
+                href: "https://github.com/Celebration-cloud",
+                label: "GitHub",
+              },
+              {
+                Icon: Linkedin,
+                href: "https://linkedin.com/in/celebration-ojingulu-45b495246",
+                label: "LinkedIn",
+              },
+              {
+                Icon: MessageCircle,
+                href: "https://wa.me/2349014194307",
+                label: "WhatsApp",
+              },
+            ].map(({ Icon, href, label }) => (
+              <a
+                key={label}
+                aria-label={label}
+                href={href}
+                rel="noopener noreferrer"
+                target="_blank"
+                className="w-11 h-11 rounded-none bg-white/5 flex items-center justify-center text-brand-gray hover:bg-brand-teal hover:text-black transition-all duration-300 hover:-translate-y-0.5"
+              >
+                <Icon size={18} strokeWidth={2.5} />
+              </a>
+            ))}
+          </div>
+        </div>
 
-      {/* Contact */}
-      <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-white/90 text-sm sm:text-base">
-        <p>(+234) 901 419 4307</p>
-        <Link className="hover:underline" href="mailto:ojinguluc@gmail.com">
-          ojinguluc@gmail.com
-        </Link>
+        {/* Bottom Meta Bar: Brutalist Accents */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-[11px] font-mono uppercase tracking-[0.2em] text-white/30">
+            © {new Date().getFullYear()} Celebration Ojingulu. All rights
+            reserved.
+          </p>
+
+          {/* Back to top button with subtle motion */}
+          <a
+            href="#top"
+            className="group flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.2em] text-white/30 hover:text-brand-teal transition-colors"
+          >
+            Back to top
+            <ArrowUp
+              size={12}
+              className="transition-transform duration-300 group-hover:-translate-y-1"
+            />
+          </a>
+        </div>
       </div>
-
-      {/* Social Links */}
-      <div className="flex items-center gap-6 mt-2">
-        <Link
-          className="text-white hover:text-gray-200 transition-colors duration-300"
-          href="https://github.com/Celebration-cloud"
-          target="_blank"
-        >
-          <i className="pi pi-github text-2xl sm:text-3xl" />
-        </Link>
-        <Link
-          className="text-white hover:text-gray-200 transition-colors duration-300"
-          href="https://linkedin.com/in/celebration-ojingulu-45b495246"
-          target="_blank"
-        >
-          <i className="pi pi-linkedin text-2xl sm:text-3xl" />
-        </Link>
-        <Link
-          className="text-white hover:text-gray-200 transition-colors duration-300"
-          href="https://wa.me/2349014194307"
-          target="_blank"
-        >
-          <i className="pi pi-whatsapp text-2xl sm:text-3xl" />
-        </Link>
-      </div>
-
-      {/* Divider */}
-      <hr className="w-full border-t border-white/30 my-6" />
-
-      {/* Copyright */}
-      <span className="text-center text-xs sm:text-sm text-white/70 max-w-md">
-        © {new Date().getFullYear()} All Rights Reserved | Designed By Ojingulu
-        Celebration
-      </span>
     </footer>
   );
-};
-
-export default Footer;
+}

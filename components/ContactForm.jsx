@@ -1,12 +1,10 @@
-/* eslint-disable prettier/prettier */
 "use client";
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
-import { Button } from "@heroui/button";
-import { Input, Textarea } from "@heroui/input";
 import { addToast } from "@heroui/toast";
+import { ArrowUpRight } from "lucide-react";
 
 const ContactForm = () => {
   const {
@@ -16,19 +14,15 @@ const ContactForm = () => {
     reset,
   } = useForm();
   const [isSubmitting, setIsSubmitting] = useState(false);
+
   const onSubmit = async (data) => {
     setIsSubmitting(true);
     emailjs
-      .send(
-        "service_40zo4or", // Replace with your service ID
-        "template_qo99jig", // Replace with your template ID
-        data,
-        "MCvMO3cKm3abSp_xT" // Replace with your user ID
-      )
+      .send("service_40zo4or", "template_qo99jig", data, "MCvMO3cKm3abSp_xT")
       .then(
         () => {
           addToast({
-            title: "Success",
+            title: "Message Sent",
             description: "Your message has been sent successfully!",
             color: "success",
           });
@@ -37,78 +31,135 @@ const ContactForm = () => {
         },
         () => {
           addToast({
-            title: "Error",
+            title: "Submission Failed",
             description: "Failed to send your message. Please try again.",
             color: "danger",
           });
           setIsSubmitting(false);
-        }
+        },
       );
   };
 
+  // Sharp, brutalist input styling
+  const inputClasses =
+    "w-full rounded-none border border-white/10 bg-white/[0.02] px-5 py-4 text-sm text-white transition-all placeholder:text-white/20 focus:border-brand-teal focus:bg-white/[0.04] focus:outline-none";
+
   return (
     <form
-      className="flex flex-col w-full space-y-6"
-      data-aos="fade-right"
+      className="w-full rounded-none border border-white/10 bg-white/[0.02] p-8 md:p-10"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <h2 className="text-4xl font-bold text-foreground-600">Contact Me</h2>
-      <Input
-        {...register("name", { required: true })}
-        className="w-full text-foreground-700"
-        errorMessage={errors.name ? "This field is required" : ""}
-        isInvalid={!!errors.name}
-        label="Your Name"
-        placeholder="John Oce"
-        type="text"
-        variant="bordered"
-      />
-
-      <Input
-        {...register("email", { required: true })}
-        className="w-full text-foreground-700"
-        errorMessage={errors.email ? "Please enter a valid email" : ""}
-        isInvalid={!!errors.email}
-        label="Your Email"
-        placeholder="junior@heroui.com"
-        type="email"
-        variant="bordered"
-      />
-
-      <Input
-        {...register("subject", { required: true })}
-        className="w-full text-foreground-700"
-        errorMessage={errors.subject ? "This field is required" : ""}
-        isInvalid={!!errors.subject}
-        label="Subject"
-        placeholder="Subject"
-        type="text"
-        variant="bordered"
-      />
-
-      <Textarea
-        {...register("message", { required: true })}
-        className="w-full text-foreground-700"
-        errorMessage={
-          errors.message
-            ? "The description should be at least 255 characters long."
-            : ""
-        }
-        isInvalid={!!errors.message}
-        label="Message"
-        placeholder="Send your message"
-        variant="bordered"
-      />
-
-      <div>
-        <Button
-          className="bg-foreground-700 text-inherit"
-          disabled={isSubmitting}
-          type="submit"
-        >
-          {isSubmitting ? "Sending..." : "Send Message"}
-        </Button>
+      <div className="mb-10">
+        <p className="text-xs font-mono uppercase tracking-[0.3em] text-brand-teal mb-4">
+          02 — Inquiry
+        </p>
+        <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-white uppercase mb-3">
+          Start a project
+        </h3>
+        <p className="text-sm leading-relaxed text-brand-gray max-w-md">
+          Share the scope, timeline, and what success looks like. I'll respond
+          with next steps.
+        </p>
       </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        {/* Name */}
+        <div>
+          <label
+            className="mb-2 block text-[10px] font-mono uppercase tracking-widest text-white/40"
+            htmlFor="name"
+          >
+            Name *
+          </label>
+          <input
+            id="name"
+            {...register("name", { required: true })}
+            className={inputClasses}
+            placeholder="John Doe"
+            type="text"
+          />
+          {errors.name && (
+            <p className="text-red-400 text-[10px] font-mono mt-2 uppercase tracking-wider">
+              Required
+            </p>
+          )}
+        </div>
+
+        {/* Email */}
+        <div>
+          <label
+            className="mb-2 block text-[10px] font-mono uppercase tracking-widest text-white/40"
+            htmlFor="email"
+          >
+            Email *
+          </label>
+          <input
+            id="email"
+            {...register("email", { required: true })}
+            className={inputClasses}
+            placeholder="your@email.com"
+            type="email"
+          />
+          {errors.email && (
+            <p className="text-red-400 text-[10px] font-mono mt-2 uppercase tracking-wider">
+              Required
+            </p>
+          )}
+        </div>
+      </div>
+
+      {/* Subject */}
+      <div className="mb-6">
+        <label
+          className="mb-2 block text-[10px] font-mono uppercase tracking-widest text-white/40"
+          htmlFor="subject"
+        >
+          Subject *
+        </label>
+        <input
+          id="subject"
+          {...register("subject", { required: true })}
+          className={inputClasses}
+          placeholder="Project Discussion"
+          type="text"
+        />
+        {errors.subject && (
+          <p className="text-red-400 text-[10px] font-mono mt-2 uppercase tracking-wider">
+            Required
+          </p>
+        )}
+      </div>
+
+      {/* Message */}
+      <div className="mb-8">
+        <label
+          className="mb-2 block text-[10px] font-mono uppercase tracking-widest text-white/40"
+          htmlFor="message"
+        >
+          Message *
+        </label>
+        <textarea
+          id="message"
+          {...register("message", { required: true })}
+          className={`${inputClasses} min-h-[160px] resize-none`}
+          placeholder="Tell me about your project..."
+        />
+        {errors.message && (
+          <p className="text-red-400 text-[10px] font-mono mt-2 uppercase tracking-wider">
+            Required
+          </p>
+        )}
+      </div>
+
+      {/* Submit */}
+      <button
+        className="group flex w-full items-center justify-between rounded-none bg-brand-teal px-6 py-5 font-bold text-black uppercase tracking-wider text-sm transition-all duration-300 hover:bg-white disabled:cursor-not-allowed disabled:opacity-50"
+        disabled={isSubmitting}
+        type="submit"
+      >
+        <span>{isSubmitting ? "Sending..." : "Send Inquiry"}</span>
+        <ArrowUpRight className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
+      </button>
     </form>
   );
 };

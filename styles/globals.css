@@ -2,6 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── Global body styling ── */
+@layer base {
+  body {
+    @apply bg-[#050505] text-white overflow-x-hidden antialiased;
+  }
+
+  ::selection {
+    @apply bg-brand-teal text-black;
+  }
+
+  /* Hide scrollbar for marquee containers */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* ── Custom utilities ── */
+@layer utilities {
+  /* Neon teal text glow */
+  .text-glow {
+    text-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+  }
+
+  /* Neon teal box glow */
+  .bg-glow {
+    box-shadow: 0 0 30px rgba(0, 229, 255, 0.15);
+  }
+
+  /* Solid teal gradient background */
+  .bg-gradient-teal {
+    background: linear-gradient(135deg, #00E5FF 0%, #00B3CC 100%);
+  }
+
+  /* Teal-to-white gradient text */
+  .text-gradient-teal {
+    background: linear-gradient(135deg, #00E5FF 0%, #ffffff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Large background watermark text */
+  .bg-text-portfolio {
+    font-size: 28vw;
+    font-weight: 800;
+    color: rgba(0, 229, 255, 0.05);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    white-space: nowrap;
+    user-select: none;
+    letter-spacing: -0.05em;
+  }
+}
+
+/* ── Keyframes ── */
 @keyframes marquee {
   0% {
     transform: translateX(0%);

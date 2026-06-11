@@ -1,106 +1,194 @@
-/* eslint-disable prettier/prettier */
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 
 export default function Portfolio({ data }) {
-  const categories = [
-    "All",
-    ...new Set(data.flatMap((p) => p.tools.split(",").map((t) => t.trim()))),
-  ];
-  const [activeCategory, setActiveCategory] = useState("All");
+  if (!data || data.length === 0) return null;
 
-  const filteredData =
-    activeCategory === "All"
-      ? data
-      : data.filter((project) =>
-          project.tools
-            .split(",")
-            .map((t) => t.trim())
-            .includes(activeCategory)
-        );
+  // Separate featured (Adesa HQ work) from other projects
+  const featuredProjects = data.filter(
+    (p) =>
+      p.title.toLowerCase().includes("adesa") ||
+      p.title.toLowerCase().includes("yungola") ||
+      p.title.toLowerCase().includes("fabtops"),
+  );
+
+  const otherProjects = data.filter((p) => !featuredProjects.includes(p));
 
   return (
     <section
-      className="py-20 bg-gray-50 dark:bg-gray-900"
-      id="scrollspyHeading5"
+      className="py-16 px-6 md:px-12 lg:px-24 bg-[#050505] border-t border-white/5"
+      id="portfolio"
     >
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold mb-6 text-gray-900 dark:text-white">
-          Portfolio
-        </h2>
+      <div className="max-w-6xl mx-auto">
+        {/* Featured Work - Adesa HQ & Major Projects */}
+        <div className="mb-20">
+          <p className="text-xs font-mono uppercase tracking-[0.3em] text-brand-teal mb-8 border-b border-white/10 pb-4">
+            02 — Featured Production
+          </p>
 
-        {/* Category Filter */}
-        <div className="flex flex-wrap gap-3 mb-8">
-          {categories.map((cat, i) => (
-            <button
-              key={i}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-300 ${
-                activeCategory === cat
-                  ? "bg-indigo-600 text-white"
-                  : "bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-indigo-500 hover:text-white"
-              }`}
-              onClick={() => setActiveCategory(cat)}
-            >
-              {cat}
-            </button>
-          ))}
+          <div className="grid gap-px bg-white/10">
+            {featuredProjects.map((project, index) => (
+              <motion.article
+                key={project.title}
+                className="group bg-[#050505] p-8 md:p-12 hover:bg-white/[0.02] transition-colors duration-300"
+                initial={{ opacity: 0, y: 10 }}
+                transition={{
+                  duration: 0.4,
+                  delay: index * 0.05,
+                  ease: "easeOut",
+                }}
+                viewport={{ once: true, margin: "-50px" }}
+                whileInView={{ opacity: 1, y: 0 }}
+              >
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+                  {/* Left: Meta & Description */}
+                  <div className="lg:col-span-5 flex flex-col justify-between">
+                    <div>
+                      <div className="flex flex-wrap gap-2 mb-6">
+                        {project.tools.split(",").map((tool, idx) => (
+                          <span
+                            key={idx}
+                            className="rounded-none bg-white/5 px-3 py-1 text-xs font-mono uppercase tracking-wider text-white/60"
+                          >
+                            {tool.trim()}
+                          </span>
+                        ))}
+                      </div>
+
+                      <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-white uppercase mb-4">
+                        {project.title}
+                      </h3>
+
+                      <div className="space-y-3">
+                        {Array.isArray(project.description) ? (
+                          project.description.slice(0, 2).map((desc, i) => (
+                            <p
+                              key={i}
+                              className="text-sm leading-relaxed text-brand-gray"
+                            >
+                              {desc}
+                            </p>
+                          ))
+                        ) : (
+                          <p className="text-sm leading-relaxed text-brand-gray">
+                            {project.description}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+
+                    <a
+                      className="inline-flex items-center gap-3 mt-8 text-sm font-bold uppercase tracking-wider text-brand-teal hover:text-white transition-colors group/link"
+                      href={project.href}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      View Live Site
+                      <ArrowUpRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1 group-hover/link:-translate-y-1" />
+                    </a>
+                  </div>
+
+                  {/* Right: Image */}
+                  <div className="lg:col-span-7">
+                    <div className="relative aspect-[16/10] overflow-hidden rounded-none bg-[#0A1114]">
+                      {project.image ? (
+                        <Image
+                          fill
+                          alt={project.title}
+                          className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-[1.02]"
+                          sizes="(max-width: 1024px) 100vw, 50vw"
+                          src={project.image}
+                        />
+                      ) : (
+                        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-brand-teal/10 to-transparent">
+                          <span className="text-xs font-mono uppercase tracking-[0.3em] text-white/20">
+                            Project Screenshot
+                          </span>
+                        </div>
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-60" />
+                    </div>
+                  </div>
+                </div>
+              </motion.article>
+            ))}
+          </div>
         </div>
 
-        {/* Project Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredData.map((project, index) => (
-            <a
-              key={index}
-              className="group relative rounded-xl overflow-hidden shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl"
-              href={project.href}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <div className="relative w-full h-64 md:h-72 lg:h-80">
-                <Image
-                  fill
-                  alt={project.title}
-                  blurDataURL={project.image}
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  placeholder="blur"
-                  src={project.image}
-                />
+        {/* Other Projects Grid */}
+        {otherProjects.length > 0 && (
+          <div>
+            <p className="text-xs font-mono uppercase tracking-[0.3em] text-brand-teal mb-8 border-b border-white/10 pb-4">
+              03 — Additional Projects
+            </p>
 
-                {/* Smart Gradient Overlay */}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/85 via-black/60 to-transparent dark:from-gray-900/95 dark:via-gray-800/70 dark:to-transparent text-white p-5 transition-all duration-500 group-hover:h-full h-32 flex flex-col justify-end">
-                  <div className="transition-all duration-500 transform group-hover:translate-y-0 translate-y-3">
-                    <h3 className="text-lg md:text-xl font-semibold mb-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10">
+              {otherProjects.map((project, index) => (
+                <motion.a
+                  key={project.title}
+                  className="group bg-[#050505] p-8 hover:bg-white/[0.02] transition-all duration-300 flex flex-col"
+                  href={project.href}
+                  initial={{ opacity: 0, y: 10 }}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                  viewport={{ once: true }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                >
+                  <div className="relative aspect-[4/3] mb-6 overflow-hidden rounded-none bg-[#0A1114]">
+                    {project.image ? (
+                      <Image
+                        fill
+                        alt={project.title}
+                        className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-[1.03]"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        src={project.image}
+                      />
+                    ) : (
+                      <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-white/5 to-transparent">
+                        <ArrowUpRight className="h-8 w-8 text-white/20" />
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="flex flex-col flex-grow">
+                    <h3 className="text-xl font-bold tracking-tight text-white uppercase mb-3 group-hover:text-brand-teal transition-colors">
                       {project.title}
                     </h3>
 
-                    <div className="flex flex-wrap gap-2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                      {project.tools.split(",").map((tech, i) => (
-                        <span
-                          key={i}
-                          className="bg-indigo-500/80 dark:bg-indigo-400/70 text-white text-xs px-2 py-1 rounded-full"
-                        >
-                          {tech.trim()}
-                        </span>
-                      ))}
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.tools
+                        .split(",")
+                        .slice(0, 3)
+                        .map((tool, idx) => (
+                          <span
+                            key={idx}
+                            className="rounded-none bg-white/5 px-2 py-1 text-[10px] font-mono uppercase tracking-wider text-white/40"
+                          >
+                            {tool.trim()}
+                          </span>
+                        ))}
                     </div>
 
-                    <ul className="list-disc list-inside text-sm space-y-1 mb-2 max-h-0 group-hover:max-h-40 overflow-hidden overflow-y-scroll scrollbar-hide transition-all duration-500 text-gray-200 dark:text-gray-300">
-                      {project.description.map((desc, i) => (
-                        <li key={i}>{desc}</li>
-                      ))}
-                    </ul>
-
-                    <p className="mt-2 text-indigo-400 dark:text-indigo-300 underline text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                      View Project
+                    <p className="text-sm leading-relaxed text-brand-gray flex-grow">
+                      {Array.isArray(project.description)
+                        ? project.description[0]
+                        : project.description}
                     </p>
+
+                    <div className="mt-6 flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-brand-teal opacity-0 group-hover:opacity-100 transition-opacity">
+                      View Project
+                      <ArrowUpRight className="h-3 w-3" />
+                    </div>
                   </div>
-                </div>
-              </div>
-            </a>
-          ))}
-        </div>
+                </motion.a>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

@@ -26,36 +26,29 @@ export const siteConfig = {
   navItems: [
     {
       label: "Home",
-      href: "#scrollspyHeading1",
+      href: "/",
     },
     {
       label: "About",
-      href: "#scrollspyHeading2",
+      href: "/about",
     },
     {
       label: "Experience",
-      href: "#scrollspyHeading4",
+      href: "/experience",
     },
     {
       label: "Portfolio",
-      href: "#scrollspyHeading5",
+      href: "/portfolio",
     },
     {
       label: "Contact",
-      href: "#scrollspyHeading8",
+      href: "/contact",
     },
   ],
   author: "Celebration Ojingulu",
   url: "https://www.celebration-portfolio.com",
   image: "/portfolio-banner.jpg",
   twitterUsername: "@celebrationojingulu",
-  navItems: [
-    { label: "Home", href: "#scrollspyHeading1" },
-    { label: "About", href: "#scrollspyHeading2" },
-    { label: "Experience", href: "#scrollspyHeading4" },
-    { label: "Portfolio", href: "#scrollspyHeading5" },
-    { label: "Contact", href: "#scrollspyHeading6" },
-  ],
 
   about: {
     name: "Celebration Ojingulu Ifechukwudeni",
@@ -74,46 +67,30 @@ export const siteConfig = {
 
   skills: [
     {
-      label: "Frontend Development",
-      tools: ["HTML5", "CSS3", "JavaScript", "React.js", "Next.js"],
-      grade: "85%",
+      label: "Frontend Engineering",
+      tools: ["React", "Next.js", "TypeScript", "JavaScript", "HTML5", "CSS3"],
     },
     {
-      label: "Styling & UX",
+      label: "Styling & UI/UX",
+      tools: ["Tailwind CSS", "Framer Motion", "Responsive Design", "Figma"],
+    },
+    {
+      label: "Video & Content",
       tools: [
-        "Tailwind CSS",
-        "Framer Motion",
-        "Responsive Design",
-        "Cross-Browser Testing",
+        "DaVinci Resolve",
+        "CapCut",
+        "Color Grading",
+        "Audio Editing",
+        "Short-form Editing",
       ],
-      grade: "85%",
     },
     {
-      label: "Data Analysis",
-      tools: ["Microsoft Excel: PivotTables, Charts, Advanced Formulas"],
-      grade: "90%",
+      label: "Backend & CMS",
+      tools: ["REST APIs", "Sanity CMS", "Firebase", "Supabase", "SQL"],
     },
     {
-      label: "IT Support & Admin",
-      tools: ["Troubleshooting", "LAN/WAN Setup", "Microsoft 365 Admin"],
-      grade: "85%",
-    },
-    {
-      label: "Database & Backend Basics",
-      tools: ["SQL", "API Integration"],
-      grade: "70%",
-    },
-    {
-      label: "Soft Skills",
-      tools: [
-        "Communication",
-        "Teamwork",
-        "Adaptability",
-        "Attention to Detail",
-        "Problem-Solving",
-        "Time Management",
-      ],
-      grade: "90%",
+      label: "DevOps & Tools",
+      tools: ["Git", "GitHub", "Vercel", "Postman"],
     },
   ],
 
@@ -131,7 +108,11 @@ export const siteConfig = {
       src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
     },
     {
-      label: "React.js",
+      label: "TypeScript",
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+    }, // Added
+    {
+      label: "React",
       src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
     },
     {
@@ -139,12 +120,8 @@ export const siteConfig = {
       src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
     },
     {
-      label: "Tailwind CSS",
+      label: "Tailwind",
       src: "https://www.svgrepo.com/show/374118/tailwind.svg",
-    },
-    {
-      label: "Excel",
-      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg",
     },
     {
       label: "Git",
@@ -155,61 +132,59 @@ export const siteConfig = {
       src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
     },
     {
-      label: "Microsoft 365",
-      src: "https://commons.wikimedia.org/wiki/Special:FilePath/Microsoft_365_%282022%29.svg",
+      label: "Capcut",
+      src: "/capcut-logo.svg",
+    },
+    {
+      label: "DaVinci Resolve",
+      src: "/DaVinci_Resolve_Studio.png",
     },
   ],
 
   experience: [
     {
+      company: "Adesa HQ",
+      title: "Frontend Engineer & Content Producer",
+      date: "Dec 2025 – Present",
+      description: [
+        "Built responsive web apps with React, Next.js, TypeScript & Tailwind CSS.",
+        "Developed SEO-optimized pages and improved Core Web Vitals performance.",
+        "Integrated Sanity CMS, REST APIs, and dynamic content pipelines.",
+        "Edited promotional videos and performed colour grading using DaVinci Resolve.",
+      ],
+    },
+    {
       company: "PalmPay Ltd",
       title: "IT Service Specialist",
-      date: "Jan 2024 - Feb 2025",
+      date: "Jan 2024 – Feb 2025",
       description: [
-        "Managed Microsoft 365 accounts, mail flow, and domain settings, ensuring 99% uptime.",
-        "Achieved 95% first-contact resolution; cut ticket backlog by 30% through efficient troubleshooting.",
-        "Authored technical documentation and debugged front-end issues to enhance team productivity.",
-        "Analyzed asset data in Excel, improving inventory accuracy by 25% and streamlining maintenance schedules.",
+        "Managed Microsoft 365 accounts, mail flow & domain settings — 99% uptime.",
+        "Achieved 95% first-contact resolution; reduced ticket backlog by 30%.",
+        "Analysed asset data in Excel; improved inventory accuracy by 25%.",
       ],
-      color: "#1E88E5",
     },
     {
       company: "GIIT Africa",
       title: "IT Intern",
-      date: "Jun 2022 - Aug 2023",
+      date: "Jun 2022 – Aug 2023",
       description: [
-        "Built SEO-friendly apps with Next.js (SSR, API Routes, Routing), reducing load times by 30%.",
-        "Boosted engagement by 20% using API routes, ISR, and image optimization.",
-        "Supported IT operations and troubleshooting, improving team efficiency.",
+        "Built SEO-friendly Next.js apps (SSR, SSG, dynamic routing) — load times ↓30%.",
+        "Boosted engagement 20% via API routes, ISR and image optimisation.",
       ],
-      color: "#9C27B0",
-    },
-    {
-      company: "Adesa HQ",
-      title: "Website Developer Intern",
-      date: "Dec 2025 - Till Date",
-      description: [
-        "Built SEO-focused web apps with Next.js using SSR, API Routes, routing, and SEO best practices.",
-        "Improved page load speed by 30% through image optimization and performance tuning.",
-        "Handled IT support and troubleshooting tasks to improve internal workflow efficiency.",
-      ],
-      color: "#9C27B9",
     },
   ],
 
   education: [
     {
       institution: "Institut Universitaire du Bénin (IUB)",
-      degree: "BSc in Information Technology",
-      year: "2020-2023",
+      degree: "BSc Information Technology",
+      year: "2020 – 2023",
     },
-    // { institution: "Roseville College", degree: "NECO", year: "2020" },
-    // { institution: "Roseville College", degree: "WAEC", year: "2021" },
     {
       institution: "Udemy",
-      degree: "React, Next.js and Front-End Development",
+      degree: "React, Next.js & Front-End Dev",
       year: "2024",
-      license: "UC-8b915820-6b25-4138-bce3-4f58d03c0085",
+      license: "UC-8b915820",
     },
   ],
 
@@ -224,6 +199,7 @@ export const siteConfig = {
         "Enhanced user engagement by optimizing images, API routes, and ISR.",
       ],
       href: "https://linkconn-news.vercel.app/",
+      featured: true,
     },
     {
       title: "Sustainable Dashboard",
@@ -235,6 +211,7 @@ export const siteConfig = {
         "Optimized for responsive design across devices.",
       ],
       href: "https://sustainability-dashboard-one.vercel.app/",
+      featured: false,
     },
     {
       title: "Interactive Booking Form",
@@ -246,6 +223,7 @@ export const siteConfig = {
         "Reduced booking errors and improved submission efficiency.",
       ],
       href: "https://interactive-booking-form.vercel.app/",
+      featured: false,
     },
     {
       title: "Country Search API",
@@ -257,6 +235,7 @@ export const siteConfig = {
         "Improved data load performance by optimizing API calls.",
       ],
       href: "https://country-search-vhrj.onrender.com/",
+      featured: false,
     },
     {
       title: "E-commerce Product Page",
@@ -268,6 +247,7 @@ export const siteConfig = {
         "Enhanced UI/UX through clean layout and interactive components.",
       ],
       href: "https://e-commerce-product-page-t3zp.onrender.com/",
+      featured: false,
     },
     {
       title: "Trip Add To List",
@@ -279,6 +259,7 @@ export const siteConfig = {
         "Optimized performance and responsiveness across devices.",
       ],
       href: "https://trip-add-to-list.onrender.com/",
+      featured: false,
     },
     {
       title: "React Quiz",
@@ -290,6 +271,7 @@ export const siteConfig = {
         "Enhanced engagement through animations and instant feedback.",
       ],
       href: "https://react-quiz-d5oy.onrender.com/",
+      featured: false,
     },
     {
       title: "To-Do List",
@@ -301,6 +283,7 @@ export const siteConfig = {
         "Designed a responsive interface with clean UX.",
       ],
       href: "https://to-do-list-topaz-psi-72.vercel.app/",
+      featured: false,
     },
     {
       title: "Calculator",
@@ -312,6 +295,7 @@ export const siteConfig = {
         "Tested for accurate calculations and user-friendly experience.",
       ],
       href: "https://celebration-calculator.onrender.com/",
+      featured: false,
     },
     {
       title: "E-commerce Website",
@@ -323,6 +307,7 @@ export const siteConfig = {
         "Improved user engagement and checkout efficiency.",
       ],
       href: "https://folakits.onrender.com/",
+      featured: false,
     },
     {
       title: "Linkcon - E-commerce Website",
@@ -335,6 +320,79 @@ export const siteConfig = {
         "Optimized performance and SEO for fast, discoverable pages.",
       ],
       href: "https://linkcon-web.vercel.app/",
+      featured: true,
+    },
+    {
+      title: "Adesa HQ",
+      image: "/adesa-hq.png", // Add your screenshot
+      tools: "Next.js, React, TypeScript, Tailwind CSS",
+      description: [
+        "Corporate website for Adesa HQ with responsive design and SEO optimization.",
+        "Implemented SSR, dynamic routing, and performance optimization strategies.",
+        "Integrated CMS for content management and dynamic page generation.",
+      ],
+      href: "https://www.adesahq.com/",
+      featured: true,
+    },
+    {
+      title: "Yungola Transport",
+      image: "/Yungola-transport.png",
+      tools: "Next.js, Tailwind CSS, Vercel Analytics",
+      description: [
+        "Transportation company website with service showcase and contact integration.",
+        "Optimized for Core Web Vitals and mobile-first responsive design.",
+        "Implemented Vercel Analytics for performance monitoring.",
+      ],
+      href: "https://yungola-transport.vercel.app/",
+      featured: true,
+    },
+    {
+      title: "Yungola Build & Design",
+      image: "/Yungola-build-and-design.png",
+      tools: "Next.js, React, Tailwind CSS",
+      description: [
+        "Construction and design company portfolio with project gallery.",
+        "Built hero slider, featured projects section, and services grid.",
+        "Implemented image optimization and lazy loading for performance.",
+      ],
+      href: "https://yungola-build-and-design.vercel.app/",
+      featured: true,
+    },
+    {
+      title: "Adesa Energy",
+      image: "/Adesa-energy.png",
+      tools: "Next.js, TypeScript, Tailwind CSS",
+      description: [
+        "Energy sector corporate website with modern design patterns.",
+        "Focused on accessibility and cross-browser compatibility.",
+        "Implemented dynamic content sections and contact forms.",
+      ],
+      href: "https://adesa-energy.vercel.app/",
+      featured: true,
+    },
+    {
+      title: "Fabtops",
+      image: "/Fabtops.png",
+      tools: "Next.js, React, Tailwind CSS, Stripe",
+      description: [
+        "E-commerce platform with full shopping cart and wishlist functionality.",
+        "Integrated Stripe for secure payment processing.",
+        "Built account management system and editorial content pages.",
+      ],
+      href: "https://fabtops.vercel.app/",
+      featured: true,
+    },
+    {
+      title: "Adesa Media",
+      image: "/Adesa-media.png",
+      tools: "Next.js, React, Sanity CMS",
+      description: [
+        "Media and content platform with dynamic page routing.",
+        "Integrated Sanity CMS for content management.",
+        "Built adventure pages and media gallery modules.",
+      ],
+      href: "https://adesa-media.vercel.app/",
+      featured: false,
     },
   ],
   links: {
