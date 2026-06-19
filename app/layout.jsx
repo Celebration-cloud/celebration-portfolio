@@ -61,9 +61,9 @@ export default function RootLayout({ children }) {
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div className="relative h-full">
+          <div className="relative mx-auto max-w-full">
             <Navbar />
-            <main className="mx-auto max-w-7xl pt-10">{children}</main>
+            <main className="pt-10">{children}</main>
             <Footer />
           </div>
         </Providers>

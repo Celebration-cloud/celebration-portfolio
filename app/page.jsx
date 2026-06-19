@@ -50,7 +50,7 @@ export default function Home() {
             <p className="mb-6 text-xs uppercase tracking-[0.3em] text-brand-teal font-mono">
               {siteConfig.name} — Frontend Engineer & Content Editor
             </p>
-            <h1 className="text-2xl font-black tracking-tighter text-white md:text-5xl lg:text-[4.5rem] leading-[0.9] uppercase">
+            <h1 className="text-5xl font-black tracking-tighter text-white md:text-5xl lg:text-[4.5rem] leading-[0.9] uppercase">
               Building fast <br />
               web apps. <br />
               <span className="text-brand-teal">Crafting sharp</span> <br />
