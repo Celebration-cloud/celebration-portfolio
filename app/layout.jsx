@@ -29,6 +29,7 @@ export default function RootLayout({ children }) {
   return (
     <html suppressHydrationWarning lang="en">
       <head>
+        <meta name="google-adsense-account" content="ca-pub-7517532434811402"></meta>
         <meta content={siteConfig.keywords.join(", ")} name="keywords" />
         <meta content={siteConfig.author} name="author" />
         <meta content={siteConfig.openGraph.type} property="og:type" />
