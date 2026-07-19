@@ -1,11 +1,23 @@
 /* eslint-disable prettier/prettier */
-"use client"
+"use client";
 import { Spinner } from "@heroui/spinner";
+
+import { Reveal } from "@/components/motion/MotionPrimitives";
+import DecryptedText from "@/components/ui/DecryptedText";
 
 export default function Loading() {
   return (
-    <div className="flex items-center justify-center h-screen">
-      <Spinner />
-    </div>
+    <Reveal className="flex min-h-[70vh] flex-col items-center justify-center gap-5">
+      <Spinner color="primary" />
+      <p className="text-[10px] font-mono uppercase tracking-[0.3em] text-brand-teal">
+        <DecryptedText
+          sequential
+          animateOn="view"
+          speed={28}
+          text="Loading portfolio"
+          useOriginalCharsOnly
+        />
+      </p>
+    </Reveal>
   );
 }

@@ -9,6 +9,15 @@ import {
   UserRound,
 } from "lucide-react";
 
+import {
+  AnimatedEyebrow,
+  MotionButton,
+  Reveal,
+  scaleIn,
+  StaggerGroup,
+  StaggerItem,
+} from "@/components/motion/MotionPrimitives";
+import BlurText from "@/components/ui/BlurText";
 import { siteConfig } from "@/config/site";
 
 const quickPages = [
@@ -46,48 +55,72 @@ export default function Home() {
         {/* Hero Section: Typography + Picture */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center mb-24 md:mb-32">
           {/* Left: Typography First Hierarchy */}
-          <div className="lg:col-span-7">
-            <p className="mb-6 text-xs uppercase tracking-[0.3em] text-brand-teal font-mono">
-              {siteConfig.name} — Frontend Engineer & Content Editor
-            </p>
+          <StaggerGroup className="lg:col-span-7" staggerChildren={0.1}>
+            <StaggerItem>
+              <AnimatedEyebrow className="mb-6 text-xs uppercase tracking-[0.3em] text-brand-teal font-mono">
+                {siteConfig.name} — Frontend Engineer & Content Editor
+              </AnimatedEyebrow>
+            </StaggerItem>
             <h1 className="text-5xl font-black tracking-tighter text-white md:text-5xl lg:text-[4.5rem] leading-[0.9] uppercase">
-              Building fast <br />
-              web apps. <br />
-              <span className="text-brand-teal">Crafting sharp</span> <br />
-              content.
+              <BlurText
+                as="span"
+                animateBy="words"
+                delay={70}
+                direction="bottom"
+                text="Building fast web apps."
+              />
+              <BlurText
+                as="span"
+                animateBy="words"
+                className="text-brand-teal"
+                delay={70}
+                direction="bottom"
+                text="Crafting sharp content."
+              />
             </h1>
-            <p className="mt-8 max-w-lg text-base leading-relaxed text-brand-gray md:text-lg">
+            <StaggerItem
+              as="p"
+              className="mt-8 max-w-lg text-base leading-relaxed text-brand-gray md:text-lg"
+            >
               2+ years building SEO-optimized interfaces with React, Next.js,
               and TypeScript. Currently at Adesa HQ delivering full-cycle
               frontend development and video production. Open to remote roles
               worldwide.
-            </p>
+            </StaggerItem>
 
             {/* Brutalist CTA Buttons */}
-            <div className="mt-10 flex flex-wrap gap-4">
+            <StaggerItem className="mt-10 flex flex-wrap gap-4">
               {/* Primary: Download CV */}
-              <a
-                className="group inline-flex items-center gap-3 rounded-none bg-brand-teal px-7 py-4 text-xs font-bold uppercase tracking-[0.2em] text-black transition-all duration-300 hover:bg-white hover:translate-x-1"
-                download="Celebration_Ojingulu_CV.pdf"
-                href="/Celebration_Ojingulu_CV.pdf"
-              >
-                Download CV
-                <Download className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5" />
-              </a>
+              <MotionButton>
+                <a
+                  className="group inline-flex items-center gap-3 rounded-none bg-brand-teal px-7 py-4 text-xs font-bold uppercase tracking-[0.2em] text-black transition-colors duration-300 hover:bg-white"
+                  download="Celebration_Ojingulu_CV.pdf"
+                  href="/Celebration_Ojingulu_CV.pdf"
+                >
+                  Download CV
+                  <Download className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5" />
+                </a>
+              </MotionButton>
 
               {/* Secondary: Get in Touch */}
-              <Link
-                className="group inline-flex items-center gap-3 rounded-none border border-white/10 px-7 py-4 text-xs font-bold uppercase tracking-[0.2em] text-white transition-all duration-300 hover:bg-white/5 hover:border-white/20"
-                href="/contact"
-              >
-                Get in touch
-                <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
-              </Link>
-            </div>
-          </div>
+              <MotionButton>
+                <Link
+                  className="group inline-flex items-center gap-3 rounded-none border border-white/10 px-7 py-4 text-xs font-bold uppercase tracking-[0.2em] text-white transition-colors duration-300 hover:bg-white/5 hover:border-white/20"
+                  href="/contact"
+                >
+                  Get in touch
+                  <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
+                </Link>
+              </MotionButton>
+            </StaggerItem>
+          </StaggerGroup>
 
           {/* Right: The Picture (Brutalist Accent) */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end">
+          <Reveal
+            className="lg:col-span-5 flex justify-center lg:justify-end"
+            delay={0.18}
+            variant={scaleIn}
+          >
             <div className="relative w-64 md:w-80 group cursor-pointer">
               {/* Brutalist Accent: Solid offset block behind the image */}
               <div className="absolute -bottom-4 -right-4 w-full h-full bg-brand-teal rounded-none transition-transform duration-500 ease-out group-hover:translate-x-2 group-hover:translate-y-2" />
@@ -102,52 +135,58 @@ export default function Home() {
                 />
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
 
         {/* Quick Links Section: Brutalist Directory */}
         <div className="pt-8">
-          <p className="mb-8 text-xs uppercase tracking-[0.3em] text-brand-gray font-mono">
+          <AnimatedEyebrow className="mb-8 text-xs uppercase tracking-[0.3em] text-brand-gray font-mono">
             Navigation / 04
-          </p>
+          </AnimatedEyebrow>
 
           {/* Structural Grid: Uses a 1px gap with a background color to create brutalist dividing lines without using borders */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10">
+          <StaggerGroup className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10">
             {quickPages.map((page, index) => {
               const Icon = page.icon;
 
               return (
-                <Link
+                <StaggerItem
                   key={page.href}
-                  className="group relative bg-[#090e11] p-8 md:p-10 transition-colors duration-300 hover:bg-white/[0.03]"
-                  href={page.href}
+                  className="bg-[#090e11]"
+                  whileHover={{ y: -4 }}
+                  whileTap={{ scale: 0.99 }}
                 >
-                  {/* Top row: Monospaced Index and Sharp Icon Box */}
-                  <div className="flex items-start justify-between mb-16">
-                    <span className="text-xs font-mono text-brand-gray">
-                      0{index + 1}
-                    </span>
-                    <div className="w-10 h-10 rounded-none bg-white/5 flex items-center justify-center text-brand-gray group-hover:bg-brand-teal group-hover:text-black transition-colors duration-300">
-                      <Icon className="h-4 w-4" />
+                  <Link
+                    className="group relative block h-full bg-[#090e11] p-8 md:p-10 transition-colors duration-300 hover:bg-white/[0.03]"
+                    href={page.href}
+                  >
+                    {/* Top row: Monospaced Index and Sharp Icon Box */}
+                    <div className="flex items-start justify-between mb-16">
+                      <span className="text-xs font-mono text-brand-gray">
+                        0{index + 1}
+                      </span>
+                      <div className="w-10 h-10 rounded-none bg-white/5 flex items-center justify-center text-brand-gray group-hover:bg-brand-teal group-hover:text-black transition-colors duration-300">
+                        <Icon className="h-4 w-4" />
+                      </div>
                     </div>
-                  </div>
 
-                  {/* Bottom row: Bold Title and Subtle Arrow */}
-                  <div className="flex items-end justify-between gap-4">
-                    <div>
-                      <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-white uppercase">
-                        {page.title}
-                      </h2>
-                      <p className="mt-2 text-sm text-brand-gray max-w-xs">
-                        {page.description}
-                      </p>
+                    {/* Bottom row: Bold Title and Subtle Arrow */}
+                    <div className="flex items-end justify-between gap-4">
+                      <div>
+                        <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-white uppercase">
+                          {page.title}
+                        </h2>
+                        <p className="mt-2 text-sm text-brand-gray max-w-xs">
+                          {page.description}
+                        </p>
+                      </div>
+                      <ArrowUpRight className="h-6 w-6 text-brand-gray transition-all duration-300 group-hover:text-brand-teal group-hover:-translate-y-1 group-hover:translate-x-1" />
                     </div>
-                    <ArrowUpRight className="h-6 w-6 text-brand-gray transition-all duration-300 group-hover:text-brand-teal group-hover:-translate-y-1 group-hover:translate-x-1" />
-                  </div>
-                </Link>
+                  </Link>
+                </StaggerItem>
               );
             })}
-          </div>
+          </StaggerGroup>
         </div>
       </div>
     </main>

@@ -1,8 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+
+import {
+  AnimatedEyebrow,
+  StaggerGroup,
+  StaggerItem,
+} from "@/components/motion/MotionPrimitives";
 
 export default function Portfolio({ data }) {
   if (!data || data.length === 0) return null;
@@ -25,23 +30,20 @@ export default function Portfolio({ data }) {
       <div className="max-w-6xl mx-auto">
         {/* Featured Work - Adesa HQ & Major Projects */}
         <div className="mb-20">
-          <p className="text-xs font-mono uppercase tracking-[0.3em] text-brand-teal mb-8 border-b border-white/10 pb-4">
+          <AnimatedEyebrow className="text-xs font-mono uppercase tracking-[0.3em] text-brand-teal mb-8 border-b border-white/10 pb-4">
             02 — Featured Production
-          </p>
+          </AnimatedEyebrow>
 
-          <div className="grid gap-px bg-white/10">
-            {featuredProjects.map((project, index) => (
-              <motion.article
+          <StaggerGroup
+            className="grid gap-px bg-white/10"
+            staggerChildren={0.1}
+          >
+            {featuredProjects.map((project) => (
+              <StaggerItem
                 key={project.title}
+                as="article"
                 className="group bg-[#050505] p-8 md:p-12 hover:bg-white/[0.02] transition-colors duration-300"
-                initial={{ opacity: 0, y: 10 }}
-                transition={{
-                  duration: 0.4,
-                  delay: index * 0.05,
-                  ease: "easeOut",
-                }}
-                viewport={{ once: true, margin: "-50px" }}
-                whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -3 }}
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
                   {/* Left: Meta & Description */}
@@ -113,30 +115,28 @@ export default function Portfolio({ data }) {
                     </div>
                   </div>
                 </div>
-              </motion.article>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerGroup>
         </div>
 
         {/* Other Projects Grid */}
         {otherProjects.length > 0 && (
           <div>
-            <p className="text-xs font-mono uppercase tracking-[0.3em] text-brand-teal mb-8 border-b border-white/10 pb-4">
+            <AnimatedEyebrow className="text-xs font-mono uppercase tracking-[0.3em] text-brand-teal mb-8 border-b border-white/10 pb-4">
               03 — Additional Projects
-            </p>
+            </AnimatedEyebrow>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10">
-              {otherProjects.map((project, index) => (
-                <motion.a
+            <StaggerGroup className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10">
+              {otherProjects.map((project) => (
+                <StaggerItem
                   key={project.title}
+                  as="a"
                   className="group bg-[#050505] p-8 hover:bg-white/[0.02] transition-all duration-300 flex flex-col"
                   href={project.href}
-                  initial={{ opacity: 0, y: 10 }}
                   rel="noopener noreferrer"
                   target="_blank"
-                  transition={{ duration: 0.4, delay: index * 0.05 }}
-                  viewport={{ once: true }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  whileHover={{ y: -4 }}
                 >
                   <div className="relative aspect-[4/3] mb-6 overflow-hidden rounded-none bg-[#0A1114]">
                     {project.image ? (
@@ -184,9 +184,9 @@ export default function Portfolio({ data }) {
                       <ArrowUpRight className="h-3 w-3" />
                     </div>
                   </div>
-                </motion.a>
+                </StaggerItem>
               ))}
-            </div>
+            </StaggerGroup>
           </div>
         )}
       </div>

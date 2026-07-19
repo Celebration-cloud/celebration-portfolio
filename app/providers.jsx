@@ -9,6 +9,7 @@ import { ToastProvider } from "@heroui/toast";
 import { useRouter } from "next/navigation";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { useEffect } from "react";
+import { MotionConfig } from "framer-motion";
 import "@/styles/globals.css";
 
 export function Providers({ children, themeProps }) {
@@ -20,11 +21,13 @@ export function Providers({ children, themeProps }) {
   }, []);
 
   return (
-    <HeroUIProvider navigate={router.push}>
-      <NextThemesProvider {...themeProps}>
-        <ToastProvider />
-        <PrimeReactProvider>{children}</PrimeReactProvider>
-      </NextThemesProvider>
-    </HeroUIProvider>
+    <MotionConfig reducedMotion="user">
+      <HeroUIProvider navigate={router.push}>
+        <NextThemesProvider {...themeProps}>
+          <ToastProvider />
+          <PrimeReactProvider>{children}</PrimeReactProvider>
+        </NextThemesProvider>
+      </HeroUIProvider>
+    </MotionConfig>
   );
 }

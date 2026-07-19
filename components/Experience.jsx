@@ -1,6 +1,12 @@
 "use client";
 
-import { motion } from "framer-motion";
+import {
+  AnimatedEyebrow,
+  Reveal,
+  StaggerGroup,
+  StaggerItem,
+} from "@/components/motion/MotionPrimitives";
+import BlurText from "@/components/ui/BlurText";
 
 export default function Experience({ data }) {
   // Sort: Adesa (Present) -> PalmPay -> GIIT
@@ -22,34 +28,35 @@ export default function Experience({ data }) {
       id="experience"
     >
       <div className="max-w-6xl mx-auto">
-        <div className="mb-16">
-          <p className="text-xs font-mono uppercase tracking-[0.3em] text-brand-teal mb-4">
+        <Reveal className="mb-16">
+          <AnimatedEyebrow className="text-xs font-mono uppercase tracking-[0.3em] text-brand-teal mb-4">
             01 — Timeline
-          </p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white uppercase leading-[0.9]">
-            Professional <br /> Experience.
-          </h2>
-        </div>
+          </AnimatedEyebrow>
+          <BlurText
+            as="h2"
+            className="max-w-4xl text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white uppercase leading-[0.9]"
+            delay={65}
+            direction="bottom"
+            text="Professional Experience."
+          />
+        </Reveal>
 
         {/* Structural Grid: 1px gap creates brutalist dividing lines without using borders */}
-        <div className="grid gap-px bg-white/10">
-          {sortedData.map((exp, index) => {
+        <StaggerGroup
+          className="grid gap-px bg-white/10"
+          staggerChildren={0.09}
+        >
+          {sortedData.map((exp) => {
             const isActive =
               exp.date.toLowerCase().includes("till date") ||
               exp.date.toLowerCase().includes("present");
 
             return (
-              <motion.article
+              <StaggerItem
                 key={`${exp.company}-${exp.title}`}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{
-                  duration: 0.4,
-                  delay: index * 0.05,
-                  ease: "easeOut",
-                }}
+                as="article"
                 className="group bg-[#090e11] p-8 md:p-12 hover:bg-white/[0.02] transition-colors duration-300"
+                whileHover={{ x: 4 }}
               >
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
                   {/* Left Column: Meta & Company */}
@@ -73,25 +80,26 @@ export default function Experience({ data }) {
 
                   {/* Right Column: Description */}
                   <div className="md:w-2/3 space-y-4">
-                    <ul className="space-y-4">
+                    <StaggerGroup as="ul" className="space-y-4">
                       {exp.description.map((desc, i) => (
-                        <li
+                        <StaggerItem
                           key={`${exp.company}-${i}`}
+                          as="li"
                           className="flex items-start gap-4 text-base leading-relaxed text-brand-gray"
                         >
                           <span className="text-brand-teal font-mono text-xs mt-1.5 shrink-0">
                             0{i + 1}
                           </span>
                           <span>{desc}</span>
-                        </li>
+                        </StaggerItem>
                       ))}
-                    </ul>
+                    </StaggerGroup>
                   </div>
                 </div>
-              </motion.article>
+              </StaggerItem>
             );
           })}
-        </div>
+        </StaggerGroup>
       </div>
     </section>
   );

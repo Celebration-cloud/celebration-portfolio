@@ -3,17 +3,8 @@
 import { useState, useEffect } from "react";
 import NextLink from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
-import {
-  Home,
-  Menu,
-  X,
-  Github,
-  Linkedin,
-  MessageCircle,
-  Sun,
-  Moon,
-} from "lucide-react";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { Home, Menu, X, Github, Linkedin, MessageCircle } from "lucide-react";
 
 import { siteConfig } from "@/config/site";
 
@@ -21,16 +12,20 @@ export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [hoveredSection, setHoveredSection] = useState(null);
 
-  // Simple theme state (Replace with next-themes in production)
-  const [isDark, setIsDark] = useState(true);
   const pathname = usePathname();
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     setIsOpen(false);
   }, [pathname]);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 py-4 px-4 sm:px-6 flex justify-center items-center">
+    <motion.header
+      animate={{ opacity: 1, y: 0 }}
+      className="fixed top-0 left-0 w-full z-50 py-4 px-4 sm:px-6 flex justify-center items-center"
+      initial={shouldReduceMotion ? false : { opacity: 0, y: -16 }}
+      transition={{ duration: shouldReduceMotion ? 0 : 0.55, ease: "easeOut" }}
+    >
       {/* Base: Minimal Glassmorphism Container (Borderless, defined by depth/shadow) */}
       <div className="w-full max-w-6xl bg-[#090e11]/90 backdrop-blur-xl py-3 px-6 rounded-2xl flex justify-between items-center shadow-2xl shadow-black/40">
         {/* Logo: Minimal base + Brutalist accent (sharp corners, solid block, no border) */}
@@ -142,9 +137,12 @@ export const Navbar = () => {
           <motion.div
             animate={{ opacity: 1, y: 0 }}
             className="fixed inset-x-4 top-[84px] max-h-[calc(100vh-120px)] bg-[#090e11]/98 backdrop-blur-xl p-6 rounded-2xl z-40 lg:hidden shadow-2xl shadow-black/50 overflow-y-auto"
-            exit={{ opacity: 0, y: -15 }}
-            initial={{ opacity: 0, y: -15 }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
+            exit={{ opacity: 0, y: shouldReduceMotion ? 0 : -15 }}
+            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : -15 }}
+            transition={{
+              duration: shouldReduceMotion ? 0 : 0.2,
+              ease: "easeOut",
+            }}
           >
             <nav className="flex flex-col items-start gap-1">
               {siteConfig.navItems.map((item, i) => {
@@ -155,8 +153,10 @@ export const Navbar = () => {
                     key={item.label}
                     animate={{ opacity: 1, x: 0 }}
                     className="w-full"
-                    initial={{ opacity: 0, x: -10 }}
-                    transition={{ delay: i * 0.05 }}
+                    initial={
+                      shouldReduceMotion ? false : { opacity: 0, x: -10 }
+                    }
+                    transition={{ delay: shouldReduceMotion ? 0 : i * 0.05 }}
                   >
                     <NextLink
                       className={`block py-3 px-4 text-lg font-medium transition-all rounded-none ${
@@ -210,6 +210,6 @@ export const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </motion.header>
   );
 };

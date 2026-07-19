@@ -1,7 +1,14 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+
+import {
+  AnimatedEyebrow,
+  Reveal,
+  StaggerGroup,
+  StaggerItem,
+} from "@/components/motion/MotionPrimitives";
+import BlurText from "@/components/ui/BlurText";
 
 export default function Education({ data }) {
   if (!data) return null;
@@ -19,14 +26,18 @@ export default function Education({ data }) {
       id="education"
     >
       <div className="max-w-6xl mx-auto">
-        <div className="mb-16">
-          <p className="text-xs font-mono uppercase tracking-[0.3em] text-brand-teal mb-4">
+        <Reveal className="mb-16">
+          <AnimatedEyebrow className="text-xs font-mono uppercase tracking-[0.3em] text-brand-teal mb-4">
             02 — Foundation
-          </p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white uppercase leading-[0.9]">
-            Education & <br /> Certifications.
-          </h2>
-        </div>
+          </AnimatedEyebrow>
+          <BlurText
+            as="h2"
+            className="max-w-4xl text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white uppercase leading-[0.9]"
+            delay={65}
+            direction="bottom"
+            text="Education & Certifications."
+          />
+        </Reveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
           {/* Academic Column */}
@@ -34,16 +45,9 @@ export default function Education({ data }) {
             <h3 className="text-xs font-mono font-bold mb-8 uppercase tracking-[0.2em] text-white/40 border-b border-white/10 pb-4">
               Academic Background
             </h3>
-            <div className="space-y-10">
+            <StaggerGroup className="space-y-10">
               {academic.map((edu, idx) => (
-                <motion.div
-                  key={idx}
-                  className="group"
-                  initial={{ opacity: 0, y: 10 }}
-                  transition={{ duration: 0.4, delay: idx * 0.05 }}
-                  viewport={{ once: true }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                >
+                <StaggerItem key={idx} className="group">
                   <div className="flex items-baseline justify-between mb-3">
                     <h4 className="text-xl font-bold text-white tracking-tight uppercase">
                       {edu.degree}
@@ -59,9 +63,9 @@ export default function Education({ data }) {
                     Solidified foundational knowledge in computer science,
                     software engineering principles, and IT infrastructure.
                   </p>
-                </motion.div>
+                </StaggerItem>
               ))}
-            </div>
+            </StaggerGroup>
           </div>
 
           {/* Certifications Column */}
@@ -69,18 +73,16 @@ export default function Education({ data }) {
             <h3 className="text-xs font-mono font-bold mb-8 uppercase tracking-[0.2em] text-white/40 border-b border-white/10 pb-4">
               Certifications & Licenses
             </h3>
-            <div className="space-y-3">
+            <StaggerGroup className="space-y-3">
               {certifications.map((cert, idx) => (
-                <motion.a
+                <StaggerItem
                   key={idx}
+                  as="a"
                   className="group flex items-center justify-between p-5 bg-white/[0.02] hover:bg-white/[0.05] border-l-2 border-transparent hover:border-brand-teal transition-all duration-300"
                   href={`https://www.udemy.com/certificate/${cert.license}/`}
-                  initial={{ opacity: 0, y: 10 }}
                   rel="noopener noreferrer"
                   target="_blank"
-                  transition={{ duration: 0.4, delay: idx * 0.05 }}
-                  viewport={{ once: true }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  whileHover={{ x: 5 }}
                 >
                   <div>
                     <h4 className="font-bold text-white mb-1 group-hover:text-brand-teal transition-colors tracking-tight">
@@ -91,9 +93,9 @@ export default function Education({ data }) {
                     </p>
                   </div>
                   <ArrowUpRight className="w-5 h-5 text-white/20 group-hover:text-brand-teal transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                </motion.a>
+                </StaggerItem>
               ))}
-            </div>
+            </StaggerGroup>
           </div>
         </div>
       </div>

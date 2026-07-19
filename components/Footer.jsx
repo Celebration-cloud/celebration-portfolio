@@ -1,4 +1,14 @@
+"use client";
+
 import { Github, Linkedin, MessageCircle, ArrowUp } from "lucide-react";
+
+import {
+  AnimatedEyebrow,
+  MotionButton,
+  Reveal,
+  StaggerGroup,
+  StaggerItem,
+} from "@/components/motion/MotionPrimitives";
 
 export default function Footer() {
   return (
@@ -6,19 +16,19 @@ export default function Footer() {
     <footer className="bg-[#050505] border-t border-white/10 px-6 pt-16 pb-8">
       <div className="max-w-6xl mx-auto">
         {/* Top Section: Primary Footer Content */}
-        <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-12 pb-12 border-b border-white/5">
+        <Reveal className="flex flex-col md:flex-row items-start md:items-end justify-between gap-12 pb-12 border-b border-white/5">
           {/* Left: Typography First Hierarchy */}
           <div>
-            <p className="text-xs font-mono uppercase tracking-[0.3em] text-brand-teal mb-3">
+            <AnimatedEyebrow className="text-xs font-mono uppercase tracking-[0.3em] text-brand-teal mb-3">
               Get in touch
-            </p>
+            </AnimatedEyebrow>
             <h3 className="text-3xl md:text-4xl font-bold tracking-tighter text-white uppercase leading-[0.9]">
-              Let's build <br /> something sharp.
+              Let&apos;s build <br /> something sharp.
             </h3>
           </div>
 
           {/* Right: Brutalist Social Icons */}
-          <div className="flex items-center gap-2">
+          <StaggerGroup className="flex items-center gap-2">
             {[
               {
                 Icon: Github,
@@ -36,22 +46,28 @@ export default function Footer() {
                 label: "WhatsApp",
               },
             ].map(({ Icon, href, label }) => (
-              <a
-                key={label}
-                aria-label={label}
-                href={href}
-                rel="noopener noreferrer"
-                target="_blank"
-                className="w-11 h-11 rounded-none bg-white/5 flex items-center justify-center text-brand-gray hover:bg-brand-teal hover:text-black transition-all duration-300 hover:-translate-y-0.5"
-              >
-                <Icon size={18} strokeWidth={2.5} />
-              </a>
+              <StaggerItem key={label}>
+                <MotionButton>
+                  <a
+                    aria-label={label}
+                    className="w-11 h-11 rounded-none bg-white/5 flex items-center justify-center text-brand-gray hover:bg-brand-teal hover:text-black transition-colors duration-300"
+                    href={href}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <Icon size={18} strokeWidth={2.5} />
+                  </a>
+                </MotionButton>
+              </StaggerItem>
             ))}
-          </div>
-        </div>
+          </StaggerGroup>
+        </Reveal>
 
         {/* Bottom Meta Bar: Brutalist Accents */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <Reveal
+          className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4"
+          delay={0.1}
+        >
           <p className="text-[11px] font-mono uppercase tracking-[0.2em] text-white/30">
             © {new Date().getFullYear()} Celebration Ojingulu. All rights
             reserved.
@@ -68,7 +84,7 @@ export default function Footer() {
               className="transition-transform duration-300 group-hover:-translate-y-1"
             />
           </a>
-        </div>
+        </Reveal>
       </div>
     </footer>
   );

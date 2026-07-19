@@ -1,10 +1,13 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, useState, useMemo } from "react";
 
 const buildKeyframes = (from, steps) => {
-  const keys = new Set([...Object.keys(from), ...steps.flatMap((s) => Object.keys(s))]);
+  const keys = new Set([
+    ...Object.keys(from),
+    ...steps.flatMap((s) => Object.keys(s)),
+  ]);
   const keyframes = {};
   keys.forEach((k) => {
     keyframes[k] = [from[k], ...steps.map((s) => s[k])];
@@ -14,6 +17,7 @@ const buildKeyframes = (from, steps) => {
 
 export default function BlurText({
   text = "",
+  as = "p",
   delay = 200,
   className = "",
   animateBy = "words",
@@ -26,6 +30,8 @@ export default function BlurText({
   onAnimationComplete,
   stepDuration = 0.35,
 }) {
+  const shouldReduceMotion = useReducedMotion();
+  const Tag = as;
   const elements = animateBy === "words" ? text.split(" ") : text.split("");
   const [inView, setInView] = useState(false);
   const ref = useRef(null);
@@ -39,7 +45,7 @@ export default function BlurText({
           observer.unobserve(ref.current);
         }
       },
-      { threshold, rootMargin }
+      { threshold, rootMargin },
     );
     observer.observe(ref.current);
     return () => observer.disconnect();
@@ -50,7 +56,7 @@ export default function BlurText({
       direction === "top"
         ? { filter: "blur(10px)", opacity: 0, y: -50 }
         : { filter: "blur(10px)", opacity: 0, y: 50 },
-    [direction]
+    [direction],
   );
 
   const defaultTo = useMemo(
@@ -62,7 +68,7 @@ export default function BlurText({
       },
       { filter: "blur(0px)", opacity: 1, y: 0 },
     ],
-    [direction]
+    [direction],
   );
 
   const fromSnapshot = animationFrom ?? defaultFrom;
@@ -71,11 +77,19 @@ export default function BlurText({
   const stepCount = toSnapshots.length + 1;
   const totalDuration = stepDuration * (stepCount - 1);
   const times = Array.from({ length: stepCount }, (_, i) =>
-    stepCount === 1 ? 0 : i / (stepCount - 1)
+    stepCount === 1 ? 0 : i / (stepCount - 1),
   );
 
+  if (shouldReduceMotion) {
+    return <Tag className={`blur-text ${className}`}>{text}</Tag>;
+  }
+
   return (
-    <p ref={ref} className={`blur-text ${className} flex flex-wrap inline-block`}>
+    <Tag
+      ref={ref}
+      aria-label={text}
+      className={`blur-text ${className} flex flex-wrap`}
+    >
       {elements.map((segment, index) => {
         const animateKeyframes = buildKeyframes(fromSnapshot, toSnapshots);
 
@@ -89,6 +103,7 @@ export default function BlurText({
         return (
           <motion.span
             key={index}
+            aria-hidden="true"
             initial={fromSnapshot}
             animate={inView ? animateKeyframes : fromSnapshot}
             transition={spanTransition}
@@ -105,6 +120,6 @@ export default function BlurText({
           </motion.span>
         );
       })}
-    </p>
+    </Tag>
   );
 }

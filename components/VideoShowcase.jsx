@@ -1,7 +1,15 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
+
+import {
+  AnimatedEyebrow,
+  MotionButton,
+  Reveal,
+  StaggerGroup,
+  StaggerItem,
+} from "@/components/motion/MotionPrimitives";
+import BlurText from "@/components/ui/BlurText";
 
 export default function VideoShowcase() {
   const featuredVideos = [
@@ -50,35 +58,43 @@ export default function VideoShowcase() {
     >
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="mb-16">
-          <p className="text-xs font-mono uppercase tracking-[0.3em] text-brand-teal mb-4">
+        <Reveal className="mb-16">
+          <AnimatedEyebrow className="text-xs font-mono uppercase tracking-[0.3em] text-brand-teal mb-4">
             01 — Video Production
-          </p>
+          </AnimatedEyebrow>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white uppercase leading-[0.9] mb-6">
-            Digital Content <br />
-            <span className="text-brand-teal">Creation.</span>
+            <BlurText
+              as="span"
+              delay={65}
+              direction="bottom"
+              text="Digital Content"
+            />
+            <BlurText
+              as="span"
+              className="text-brand-teal"
+              delay={65}
+              direction="bottom"
+              text="Creation."
+            />
           </h2>
           <p className="text-base md:text-lg leading-relaxed text-brand-gray max-w-2xl">
             Beyond code, I produce high-quality video content using DaVinci
             Resolve. Specializing in color grading, audio cleanup, and
             short-form editing for web and social platforms.
           </p>
-        </div>
+        </Reveal>
 
         {/* Featured Videos Grid */}
-        <div className="grid gap-px bg-white/10 mb-12">
-          {featuredVideos.map((video, index) => (
-            <motion.article
+        <StaggerGroup
+          className="grid gap-px bg-white/10 mb-12"
+          staggerChildren={0.1}
+        >
+          {featuredVideos.map((video) => (
+            <StaggerItem
               key={video.title}
+              as="article"
               className="group bg-[#090e11] p-8 md:p-12 hover:bg-white/[0.02] transition-colors duration-300"
-              initial={{ opacity: 0, y: 10 }}
-              transition={{
-                duration: 0.4,
-                delay: index * 0.1,
-                ease: "easeOut",
-              }}
-              viewport={{ once: true, margin: "-50px" }}
-              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -3 }}
             >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
                 {/* Left: Video Player */}
@@ -136,22 +152,24 @@ export default function VideoShowcase() {
                   </div>
                 </div>
               </div>
-            </motion.article>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerGroup>
 
         {/* View Full Archive Button */}
-        <div className="flex justify-center">
-          <a
-            className="inline-flex items-center gap-3 rounded-none bg-white/5 px-8 py-4 text-sm font-bold uppercase tracking-wider text-white hover:bg-brand-teal hover:text-black transition-all duration-300 group"
-            href="https://drive.google.com/drive/folders/1adELVMv1P4RQu6VHvFEOPRKk_dx8hClg?usp=sharing"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            View Full Video Archive
-            <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-          </a>
-        </div>
+        <Reveal className="flex justify-center">
+          <MotionButton>
+            <a
+              className="inline-flex items-center gap-3 rounded-none bg-white/5 px-8 py-4 text-sm font-bold uppercase tracking-wider text-white hover:bg-brand-teal hover:text-black transition-colors duration-300 group"
+              href="https://drive.google.com/drive/folders/1adELVMv1P4RQu6VHvFEOPRKk_dx8hClg?usp=sharing"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              View Full Video Archive
+              <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+            </a>
+          </MotionButton>
+        </Reveal>
       </div>
     </section>
   );
