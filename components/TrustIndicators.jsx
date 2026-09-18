@@ -1,6 +1,6 @@
 "use client";
 
-import { Shield, Code, Video } from "lucide-react";
+import { Shield, Code, Zap } from "lucide-react";
 import { motion } from "framer-motion";
 
 const fadeUp = {
@@ -25,8 +25,8 @@ export default function TrustIndicators() {
       text: "React & Next.js Specialist",
     },
     {
-      Icon: Video,
-      text: "Video Editor & Content Creator",
+      Icon: Zap,
+      text: "Web Performance & SEO",
     },
   ];
 

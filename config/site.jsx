@@ -9,6 +9,14 @@ const portfolio_8 = "/Screenshot 2025-02-24 091102.png";
 const portfolio_9 = "/Screenshot 2025-02-24 091509.png";
 const portfolio_10 = "/Screenshot 2025-10-20 011844.png";
 const portfolio_11 = "/Screenshot 2025-10-20 093155.png";
+const portfolio_12 = "/Adesa-hq.png";
+const portfolio_13 = "/Linkcon_rent.png"; // TODO: add /public/Linkcon_rent.png
+const portfolio_14 = "/Yungola-transport.png";
+const portfolio_15 = "/Yungola-build-and-design.png";
+const portfolio_16 = "/Adesa-energy.png";
+const portfolio_17 = "/Fabtops.png";
+const portfolio_18 = "/Adesa-media.png";
+
 
 export const siteConfig = {
   name: "Celebration Ojingulu Portfolio",
@@ -46,51 +54,71 @@ export const siteConfig = {
     },
   ],
   author: "Celebration Ojingulu",
-  url: "https://www.celebration-portfolio.com",
+  url: "https://celebration-portfolio.vercel.app",
   image: "/portfolio-banner.jpg",
   twitterUsername: "@celebrationojingulu",
 
   about: {
     name: "Celebration Ojingulu Ifechukwudeni",
-    title: "Front-End Developer & IT Specialist",
+    title: "Front-End Developer",
     contact: {
       email: "ojinguluc@gmail.com",
-      phone: "+2349014194307",
-      address: "4 Prince Kosoko Kings Street",
+      phone: "+44 7344 388286",
+      address: "Heywood, Manchester, UK",
+      location: "Hybrid / Remote",
+      rightToWork: "Right to Work in the UK: Yes",
+      portfolio: "https://celebration-portfolio.vercel.app",
+      github: "https://github.com/Celebration-cloud",
+      githubWork: "https://github.com/Celebration-Adesa-HQ",
     },
     summary: [
-      "Detail-oriented and adaptable IT professional with hands-on experience in front-end web development, data analysis (Excel), and IT support.",
-      "Skilled in HTML, CSS, JavaScript, Next.js, Tailwind CSS, troubleshooting, and Microsoft 365 administration.",
-      "Strong communication, teamwork, and problem-solving skills to drive productivity and user satisfaction.",
+      "Front-end developer with hands-on production experience in React, Next.js (SSR, SSG, ISR), TypeScript and Tailwind CSS, plus a background in IT support and data analysis.",
+      "Reduced page load times by 30% and boosted engagement by 20% on live projects. Comfortable across the full front-end workflow: building, debugging, and shipping responsive, SEO-optimised web apps using Git-based collaboration.",
+      "Proficient in cross-browser testing, CMS integration, Microsoft 365 administration, and advanced Excel analysis (PivotTables and formulas).",
     ],
   },
 
   skills: [
     {
-      label: "Frontend Engineering",
-      tools: ["React", "Next.js", "TypeScript", "JavaScript", "HTML5", "CSS3"],
-    },
-    {
-      label: "Styling & UI/UX",
-      tools: ["Tailwind CSS", "Framer Motion", "Responsive Design", "Figma"],
-    },
-    {
-      label: "Video & Content",
+      label: "Front-End Development",
       tools: [
-        "DaVinci Resolve",
-        "CapCut",
-        "Color Grading",
-        "Audio Editing",
-        "Short-form Editing",
+        "React",
+        "Next.js (SSR, SSG, ISR)",
+        "TypeScript",
+        "JavaScript",
+        "HTML5",
+        "CSS3",
+        "Tailwind CSS",
       ],
     },
     {
-      label: "Backend & CMS",
-      tools: ["REST APIs", "Sanity CMS", "Firebase", "Supabase", "SQL"],
+      label: "Architecture & Optimization",
+      tools: [
+        "API Routes",
+        "Dynamic Routing",
+        "SEO Optimization",
+        "Responsive Design",
+        "Cross-Browser Testing",
+        "CMS Integration",
+      ],
     },
     {
-      label: "DevOps & Tools",
-      tools: ["Git", "GitHub", "Vercel", "Postman"],
+      label: "IT Systems & Diagnostics",
+      tools: [
+        "IT Support & Troubleshooting",
+        "Network Diagnostics (LAN/WAN)",
+        "Microsoft 365 Administration",
+        "Advanced Excel (PivotTables)",
+      ],
+    },
+    {
+      label: "Workflow & Collaboration",
+      tools: [
+        "Git",
+        "GitHub",
+        "Git-Based Collaboration",
+        "Vercel",
+      ],
     },
   ],
 
@@ -131,60 +159,53 @@ export const siteConfig = {
       label: "GitHub",
       src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
     },
-    {
-      label: "Capcut",
-      src: "/capcut-logo.svg",
-    },
-    {
-      label: "DaVinci Resolve",
-      src: "/DaVinci_Resolve_Studio.png",
-    },
   ],
 
   experience: [
     {
       company: "Adesa HQ",
-      title: "Frontend Engineer & Content Producer",
-      date: "Dec 2025 – Present",
+      title: "Web Developer",
+      date: "March 2025 – Present",
       description: [
-        "Built responsive web apps with React, Next.js, TypeScript & Tailwind CSS.",
-        "Developed SEO-optimized pages and improved Core Web Vitals performance.",
-        "Integrated Sanity CMS, REST APIs, and dynamic content pipelines.",
-        "Edited promotional videos and performed colour grading using DaVinci Resolve.",
+        "Built and launched the corporate website for Adesa HQ (adesahq.com) using Next.js, TypeScript, and Tailwind CSS, cutting page load times by 30% through server-side rendering (SSR) and dynamic routing.",
+        "Increased user engagement by 20% by implementing incremental static regeneration (ISR), optimised image loading, and API routes across the live site.",
+        "Integrated a CMS for content management and dynamic page generation, enabling non-technical staff to publish updates without developer involvement.",
+        "Resolved 15+ front-end bugs and cross-browser inconsistencies per sprint, documenting fixes using Git version control to speed up team debugging and onboarding.",
       ],
     },
     {
-      company: "PalmPay Ltd",
+      company: "PalmPay Limited",
       title: "IT Service Specialist",
       date: "Jan 2024 – Feb 2025",
       description: [
-        "Managed Microsoft 365 accounts, mail flow & domain settings — 99% uptime.",
-        "Achieved 95% first-contact resolution; reduced ticket backlog by 30%.",
-        "Analysed asset data in Excel; improved inventory accuracy by 25%.",
+        "Sustained 99% system uptime by managing Microsoft 365 accounts, mail flow, and domain configuration for 300+ users.",
+        "Resolved 95% of tickets on first contact and cut backlog by 30% by streamlining the troubleshooting workflow and prioritisation process.",
+        "Improved inventory accuracy by 25% by auditing and restructuring asset data in Excel using advanced formulas and PivotTables, tightening maintenance scheduling.",
+        "Authored 20+ technical support documents that reduced repeat tickets by 15% and shortened new-hire ramp-up time.",
       ],
     },
     {
       company: "GIIT Africa",
       title: "IT Intern",
-      date: "Jun 2022 – Aug 2023",
+      date: "2020 – 2023",
       description: [
-        "Built SEO-friendly Next.js apps (SSR, SSG, dynamic routing) — load times ↓30%.",
-        "Boosted engagement 20% via API routes, ISR and image optimisation.",
+        "Diagnosed and resolved 20+ hardware/network issues per month across LAN/WAN environments, minimising downtime for 50+ staff.",
+        "Supported front-end and IT infrastructure tasks in parallel, building foundational HTML/CSS/JavaScript skills later applied in production Next.js projects.",
       ],
     },
   ],
 
   education: [
     {
-      institution: "Institut Universitaire du Bénin (IUB)",
-      degree: "BSc Information Technology",
+      institution: "Institut Universitaire du Benin",
+      degree: "BSc, Information & Communication Technology",
       year: "2020 – 2023",
     },
     {
       institution: "Udemy",
-      degree: "React, Next.js & Front-End Dev",
+      degree: "React, Next.js and Front-End Development",
       year: "2024",
-      license: "UC-8b915820",
+      license: "UC-8b915820-6b25-4138-bce3-4f58d03c0085",
     },
   ],
 
@@ -324,7 +345,7 @@ export const siteConfig = {
     },
     {
       title: "Adesa HQ",
-      image: "/adesa-hq.png", // Add your screenshot
+      image: portfolio_12,
       tools: "Next.js, React, TypeScript, Tailwind CSS",
       description: [
         "Corporate website for Adesa HQ with responsive design and SEO optimization.",
@@ -335,8 +356,20 @@ export const siteConfig = {
       featured: true,
     },
     {
+      title: "Linkcon-Rent",
+      image: portfolio_13,
+      tools: "Next.js, React, TypeScript, Tailwind CSS",
+      description: [
+        "Built a verified property rental platform for Nigeria — connecting renters directly with landlords, no agents or hidden fees.",
+        "Implemented map-based property search, neighbourhood filtering, and a transparent move-in cost breakdown showing every charge by name.",
+        "Integrated a two-party viewing confirmation flow, reusable renter profiles, digital lease signing, and Paystack-secured rent payments.",
+      ],
+      href: "https://linkconn-rent.vercel.app/",
+      featured: true,
+    },
+    {
       title: "Yungola Transport",
-      image: "/Yungola-transport.png",
+      image: portfolio_14,
       tools: "Next.js, Tailwind CSS, Vercel Analytics",
       description: [
         "Transportation company website with service showcase and contact integration.",
@@ -348,7 +381,7 @@ export const siteConfig = {
     },
     {
       title: "Yungola Build & Design",
-      image: "/Yungola-build-and-design.png",
+      image: portfolio_15,
       tools: "Next.js, React, Tailwind CSS",
       description: [
         "Construction and design company portfolio with project gallery.",
@@ -360,7 +393,7 @@ export const siteConfig = {
     },
     {
       title: "Adesa Energy",
-      image: "/Adesa-energy.png",
+      image: portfolio_16,
       tools: "Next.js, TypeScript, Tailwind CSS",
       description: [
         "Energy sector corporate website with modern design patterns.",
@@ -372,7 +405,7 @@ export const siteConfig = {
     },
     {
       title: "Fabtops",
-      image: "/Fabtops.png",
+      image: portfolio_17,
       tools: "Next.js, React, Tailwind CSS, Stripe",
       description: [
         "E-commerce platform with full shopping cart and wishlist functionality.",
@@ -384,7 +417,7 @@ export const siteConfig = {
     },
     {
       title: "Adesa Media",
-      image: "/Adesa-media.png",
+      image: portfolio_18,
       tools: "Next.js, React, Sanity CMS",
       description: [
         "Media and content platform with dynamic page routing.",
@@ -392,23 +425,21 @@ export const siteConfig = {
         "Built adventure pages and media gallery modules.",
       ],
       href: "https://adesa-media.vercel.app/",
-      featured: false,
+      featured: true,
     },
   ],
   links: {
     github: "https://github.com/Celebration-cloud",
-    twitter: "https://twitter.com/hero_ui",
-    docs: "https://heroui.com",
-    discord: "https://discord.gg/9b6yyZKmH4",
-    sponsor: "https://patreon.com/jrgarciadev",
+    githubWork: "https://github.com/Celebration-Adesa-HQ",
+    portfolio: "https://celebration-portfolio.vercel.app",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://www.celebration-portfolio.com",
+    url: "https://celebration-portfolio.vercel.app",
     title: "Celebration Ojingulu Portfolio",
     description:
-      "Showcasing the portfolio of Celebration Ojingulu, featuring beautiful and professional websites created with a focus on design and functionality.",
+      "Portfolio of Celebration Ojingulu — Front-End Developer based in Heywood, Manchester, UK. Building modern web apps with Next.js, React, and TypeScript.",
     image: "/portfolio-banner.jpg",
     site_name: "Celebration Ojingulu Portfolio",
   },
@@ -417,6 +448,8 @@ export const siteConfig = {
     site: "@celebrationojingulu",
     cardType: "summary_large_image",
   },
-
-  references: [{ name: "Ojingulu Regina", contact: "+234 806 375 0779" }],
+  additional: {
+    languages: ["English"],
+    rightToWorkUK: "Yes",
+  },
 };

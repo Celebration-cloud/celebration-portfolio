@@ -9,6 +9,7 @@ import {
   StaggerGroup,
   StaggerItem,
 } from "@/components/motion/MotionPrimitives";
+import { siteConfig } from "@/config/site";
 
 export default function Footer() {
   return (
@@ -28,12 +29,17 @@ export default function Footer() {
           </div>
 
           {/* Right: Brutalist Social Icons */}
-          <StaggerGroup className="flex items-center gap-2">
+          <StaggerGroup className="flex items-center gap-2 flex-wrap">
             {[
               {
                 Icon: Github,
-                href: "https://github.com/Celebration-cloud",
-                label: "GitHub",
+                href: siteConfig.links.github,
+                label: "GitHub (Personal)",
+              },
+              {
+                Icon: Github,
+                href: siteConfig.links.githubWork,
+                label: "GitHub (Adesa HQ)",
               },
               {
                 Icon: Linkedin,
@@ -42,7 +48,7 @@ export default function Footer() {
               },
               {
                 Icon: MessageCircle,
-                href: "https://wa.me/2349014194307",
+                href: `https://wa.me/${siteConfig.about.contact.phone.replace(/\D/g, "")}`,
                 label: "WhatsApp",
               },
             ].map(({ Icon, href, label }) => (
@@ -50,6 +56,7 @@ export default function Footer() {
                 <MotionButton>
                   <a
                     aria-label={label}
+                    title={label}
                     className="w-11 h-11 rounded-none bg-white/5 flex items-center justify-center text-brand-gray hover:bg-brand-teal hover:text-black transition-colors duration-300"
                     href={href}
                     rel="noopener noreferrer"

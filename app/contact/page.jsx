@@ -3,7 +3,7 @@ import Contact from "@/components/Contact";
 export const metadata = {
   title: "Contact — Celebration Ojingulu",
   description:
-    "Get in touch for frontend engineering, video production, or collaboration.",
+    "Get in touch for frontend engineering, web applications, or collaboration.",
 };
 
 export default function ContactPage() {

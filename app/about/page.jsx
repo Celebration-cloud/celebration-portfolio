@@ -5,7 +5,7 @@ import { siteConfig } from "@/config/site";
 export const metadata = {
   title: "About — Celebration Ojingulu",
   description:
-    "Frontend Engineer & Digital Content Producer. Background, skills, and technical focus.",
+    "Front-End Developer. Background, skills, and technical focus.",
 };
 
 export default function AboutPage() {

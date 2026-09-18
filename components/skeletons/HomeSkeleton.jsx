@@ -1,0 +1,64 @@
+const Shimmer = ({ className }) => (
+  <div
+    className={`animate-pulse bg-white/[0.06] motion-reduce:animate-none ${className}`}
+  />
+);
+
+export default function HomeSkeleton() {
+  return (
+    <div
+      aria-label="Loading page"
+      aria-live="polite"
+      className="bg-[#090e11]"
+      role="status"
+    >
+      {/* Hero */}
+      <section className="px-6 py-24 md:px-12 lg:px-24 min-h-[80vh] flex items-center">
+        <div className="mx-auto max-w-6xl w-full space-y-6">
+          <Shimmer className="h-3 w-48 rounded-none" />
+          <Shimmer className="h-16 w-4/5 rounded-none md:h-24 lg:h-28" />
+          <Shimmer className="h-16 w-3/5 rounded-none md:h-24 lg:h-28" />
+          <Shimmer className="h-4 w-full max-w-xl rounded-none" />
+          <Shimmer className="h-4 w-4/5 max-w-lg rounded-none" />
+          <div className="flex gap-4 pt-4">
+            <Shimmer className="h-12 w-40 rounded-none" />
+            <Shimmer className="h-12 w-36 rounded-none" />
+          </div>
+        </div>
+      </section>
+
+      {/* Quick nav cards */}
+      <section className="px-6 py-16 md:px-12 lg:px-24 bg-[#050505] border-t border-white/5">
+        <div className="mx-auto max-w-6xl">
+          <Shimmer className="h-3 w-32 rounded-none mb-10" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10">
+            {[0, 1, 2, 3].map((i) => (
+              <div key={i} className="bg-[#050505] p-8 space-y-4">
+                <Shimmer className="h-6 w-6 rounded-none" />
+                <Shimmer className="h-5 w-24 rounded-none" />
+                <Shimmer className="h-3 w-full rounded-none" />
+                <Shimmer className="h-3 w-4/5 rounded-none" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured projects preview */}
+      <section className="px-6 py-16 md:px-12 lg:px-24">
+        <div className="mx-auto max-w-6xl">
+          <Shimmer className="h-3 w-40 rounded-none mb-10" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10">
+            {[0, 1].map((i) => (
+              <div key={i} className="bg-[#050505] p-8 space-y-4">
+                <Shimmer className="aspect-[16/10] w-full rounded-none" />
+                <Shimmer className="h-6 w-3/5 rounded-none" />
+                <Shimmer className="h-3 w-full rounded-none" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}

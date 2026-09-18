@@ -13,10 +13,10 @@ export default function Testimonials() {
       href: "#",
     },
     {
-      title: "Color Grading Basics for Devs",
-      description: "How to make your promotional videos look professional using DaVinci Resolve.",
+      title: "Building Resilient Design Systems",
+      description: "How to structure reusable Tailwind CSS components for enterprise Next.js applications.",
       date: "Sep 28, 2023",
-      readTime: "7 min read",
+      readTime: "6 min read",
       href: "#",
     },
   ];
@@ -35,7 +35,7 @@ export default function Testimonials() {
           <div className="bg-[#0A1114] border border-white/5 p-8 rounded-3xl relative overflow-hidden">
             <Quote className="absolute top-6 left-6 w-12 h-12 text-brand-teal/10 pointer-events-none" />
             <p className="text-lg leading-relaxed text-brand-gray mb-8 relative z-10 pt-4 italic">
-              "Celebration didn't just build us a fast website; he completely understood our brand's voice and delivered video content that matched the new site perfectly. A rare combination of technical and creative talent."
+              "Celebration didn't just build us a fast website; he completely understood our product vision and delivered clean, scalable architecture that improved our load times significantly. Exceptional frontend talent."
             </p>
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 rounded-full bg-brand-dark border border-brand-teal/30 flex items-center justify-center font-bold text-brand-teal">

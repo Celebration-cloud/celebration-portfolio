@@ -26,36 +26,35 @@ export default function About({ data }) {
                 as="span"
                 delay={65}
                 direction="bottom"
-                text="Frontend Engineer &"
+                text="Front-End"
               />
               <BlurText
                 as="span"
                 className="text-brand-teal"
                 delay={65}
                 direction="bottom"
-                text="Content Producer."
+                text="Developer."
               />
             </h2>
             <div className="space-y-6 text-brand-gray text-base md:text-lg leading-relaxed max-w-lg">
               <p>
-                Frontend Engineer with 2+ years building fast, SEO-optimized web
-                apps using{" "}
+                Front-end developer with hands-on production experience in{" "}
                 <span className="text-white font-medium">
-                  React, Next.js, and TypeScript
+                  React, Next.js (SSR, SSG, ISR), TypeScript, and Tailwind CSS
                 </span>
-                . Currently at Adesa HQ delivering full-cycle frontend
-                development.
+                , plus a background in IT support and data analysis. Currently at
+                Adesa HQ shipping responsive, SEO-optimised web applications.
               </p>
               <p>
-                Beyond code, I am a skilled digital content producer
-                specializing in
-                <span className="text-white font-medium"> DaVinci Resolve</span>
-                . This dual expertise allows me to build robust platforms and
-                craft the compelling visual narratives that live on them.
+                Reduced page load times by 30% and boosted engagement by 20% on
+                live projects. Experienced in CMS integration, API routes,
+                cross-browser testing, and Git-based team workflows.
               </p>
               <p>
-                Former IT Specialist at PalmPay Ltd. BSc in Information
-                Technology. Open to remote roles worldwide.
+                Former IT Service Specialist at PalmPay Limited. Holds a BSc in
+                Information &amp; Communication Technology from Institut
+                Universitaire du Benin. Right to work in the UK: Yes. Based in
+                Heywood, Manchester, UK (Hybrid / Remote).
               </p>
             </div>
           </Reveal>

@@ -10,13 +10,13 @@ import {
   StaggerItem,
 } from "@/components/motion/MotionPrimitives";
 import BlurText from "@/components/ui/BlurText";
+import { siteConfig } from "@/config/site";
 import ContactForm from "./ContactForm";
 
 export default function Contact() {
-  // Directly from your CV
-  const email = "ojinguluc@gmail.com";
-  const phone = "+234 903 419 4307";
-  const whatsappUrl = "https://wa.me/2349034194307";
+  const { email, phone, address, location, github, githubWork } =
+    siteConfig.about.contact;
+  const whatsappUrl = `https://wa.me/${phone.replace(/\D/g, "")}`;
 
   return (
     <section
@@ -47,8 +47,8 @@ export default function Contact() {
             </h2>
 
             <p className="text-base md:text-lg leading-relaxed text-brand-gray mb-10 max-w-md">
-              Frontend Engineer & Digital Content Editor based in Lagos. Open to
-              remote roles and freelance projects worldwide.
+              Front-End Developer based in {address}. Open to hybrid and remote
+              roles and web projects worldwide.
             </p>
 
             {/* Contact Details */}
@@ -82,7 +82,7 @@ export default function Contact() {
                 </span>
                 <div>
                   <p className="text-[10px] font-mono uppercase tracking-widest text-white/40">
-                    WhatsApp
+                    WhatsApp / Phone
                   </p>
                   <p className="text-sm font-medium">{phone}</p>
                 </div>
@@ -96,8 +96,8 @@ export default function Contact() {
                     Location
                   </p>
                   <p className="text-sm font-medium">
-                    Lagos, Nigeria{" "}
-                    <span className="text-brand-teal">(Remote)</span>
+                    {address}{" "}
+                    <span className="text-brand-teal">({location})</span>
                   </p>
                 </div>
               </StaggerItem>
@@ -106,9 +106,9 @@ export default function Contact() {
             {/* Social Links */}
             <div>
               <p className="text-[10px] font-mono uppercase tracking-widest text-white/40 mb-4">
-                Socials
+                Socials &amp; Profiles
               </p>
-              <div className="flex gap-2">
+              <div className="flex flex-wrap gap-2">
                 <MotionButton>
                   <a
                     aria-label="LinkedIn"
@@ -116,17 +116,31 @@ export default function Contact() {
                     href="https://linkedin.com/in/celebration-ojingulu-45b495246"
                     rel="noopener noreferrer"
                     target="_blank"
+                    title="LinkedIn"
                   >
                     <Linkedin size={18} />
                   </a>
                 </MotionButton>
                 <MotionButton>
                   <a
-                    aria-label="GitHub"
+                    aria-label="GitHub Personal"
                     className="w-11 h-11 rounded-none bg-white/5 flex items-center justify-center text-brand-gray hover:bg-brand-teal hover:text-black transition-colors duration-300"
-                    href="https://github.com/Celebration-cloud"
+                    href={github}
                     rel="noopener noreferrer"
                     target="_blank"
+                    title="GitHub (Personal)"
+                  >
+                    <Github size={18} />
+                  </a>
+                </MotionButton>
+                <MotionButton>
+                  <a
+                    aria-label="GitHub Work"
+                    className="w-11 h-11 rounded-none bg-white/5 flex items-center justify-center text-brand-gray hover:bg-brand-teal hover:text-black transition-colors duration-300"
+                    href={githubWork}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    title="GitHub (Adesa HQ)"
                   >
                     <Github size={18} />
                   </a>

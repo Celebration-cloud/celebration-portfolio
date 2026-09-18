@@ -91,8 +91,13 @@ export const Navbar = () => {
           {[
             {
               Icon: Github,
-              href: "https://github.com/Celebration-cloud",
-              label: "GitHub",
+              href: siteConfig.links.github,
+              label: "GitHub (Personal)",
+            },
+            {
+              Icon: Github,
+              href: siteConfig.links.githubWork,
+              label: "GitHub (Adesa HQ)",
             },
             {
               Icon: Linkedin,
@@ -101,13 +106,14 @@ export const Navbar = () => {
             },
             {
               Icon: MessageCircle,
-              href: "https://wa.me/2349014194307",
+              href: `https://wa.me/${siteConfig.about.contact.phone.replace(/\D/g, "")}`,
               label: "WhatsApp",
             },
           ].map(({ Icon, href, label }) => (
             <motion.a
               key={label}
               aria-label={label}
+              title={label}
               className="w-9 h-9 rounded-none bg-white/5 flex items-center justify-center text-brand-gray hover:text-brand-teal hover:bg-white/10 transition-colors"
               href={href}
               rel="noopener noreferrer"
@@ -175,12 +181,17 @@ export const Navbar = () => {
 
               {/* Mobile Bottom Section */}
               <div className="flex gap-3 mt-6 pt-6 w-full justify-between items-center">
-                <div className="flex gap-2">
+                <div className="flex flex-wrap gap-2">
                   {[
                     {
                       Icon: Github,
-                      href: "https://github.com/Celebration-cloud",
-                      label: "GitHub",
+                      href: siteConfig.links.github,
+                      label: "GitHub (Personal)",
+                    },
+                    {
+                      Icon: Github,
+                      href: siteConfig.links.githubWork,
+                      label: "GitHub (Adesa HQ)",
                     },
                     {
                       Icon: Linkedin,
@@ -189,13 +200,14 @@ export const Navbar = () => {
                     },
                     {
                       Icon: MessageCircle,
-                      href: "https://wa.me/2349014194307",
+                      href: `https://wa.me/${siteConfig.about.contact.phone.replace(/\D/g, "")}`,
                       label: "WhatsApp",
                     },
                   ].map(({ Icon, href, label }) => (
                     <a
                       key={label}
                       aria-label={label}
+                      title={label}
                       className="w-10 h-10 rounded-none bg-white/5 flex items-center justify-center text-brand-gray hover:text-brand-teal hover:bg-white/10 transition-all"
                       href={href}
                       rel="noopener noreferrer"

@@ -24,7 +24,7 @@ const quickPages = [
   {
     title: "About",
     description:
-      "Background, technical stack, and dual focus on code & content.",
+      "Background, technical stack, and focus on frontend engineering.",
     href: "/about",
     icon: UserRound,
   },
@@ -36,13 +36,13 @@ const quickPages = [
   },
   {
     title: "Portfolio",
-    description: "Selected web builds and video production work.",
+    description: "Selected web applications and client projects.",
     href: "/portfolio",
     icon: FolderKanban,
   },
   {
     title: "Contact",
-    description: "Reach out for frontend engineering or content collaboration.",
+    description: "Reach out for frontend engineering or collaboration.",
     href: "/contact",
     icon: Mail,
   },
@@ -58,7 +58,7 @@ export default function Home() {
           <StaggerGroup className="lg:col-span-7" staggerChildren={0.1}>
             <StaggerItem>
               <AnimatedEyebrow className="mb-6 text-xs uppercase tracking-[0.3em] text-brand-teal font-mono">
-                {siteConfig.name} — Frontend Engineer & Content Editor
+                {siteConfig.name} — Front-End Developer
               </AnimatedEyebrow>
             </StaggerItem>
             <h1 className="text-5xl font-black tracking-tighter text-white md:text-5xl lg:text-[4.5rem] leading-[0.9] uppercase">
@@ -75,17 +75,17 @@ export default function Home() {
                 className="text-brand-teal"
                 delay={70}
                 direction="bottom"
-                text="Crafting sharp content."
+                text="Engineering clean UI."
               />
             </h1>
             <StaggerItem
               as="p"
               className="mt-8 max-w-lg text-base leading-relaxed text-brand-gray md:text-lg"
             >
-              2+ years building SEO-optimized interfaces with React, Next.js,
-              and TypeScript. Currently at Adesa HQ delivering full-cycle
-              frontend development and video production. Open to remote roles
-              worldwide.
+              Front-end developer with hands-on production experience in React,
+              Next.js (SSR, SSG, ISR), TypeScript, and Tailwind CSS. Currently at
+              Adesa HQ building high-performance web applications. Based in
+              Heywood, Manchester, UK (Hybrid / Remote).
             </StaggerItem>
 
             {/* Brutalist CTA Buttons */}

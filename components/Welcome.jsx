@@ -31,7 +31,7 @@ const imageContainerVariants = {
 };
 
 export default function Welcome() {
-  const whatsappUrl = `https://wa.me/${siteConfig.about.contact.phone.replace("+", "")}`;
+  const whatsappUrl = `https://wa.me/${siteConfig.about.contact.phone.replace(/\D/g, "")}`;
 
   return (
     <section
@@ -53,8 +53,8 @@ export default function Welcome() {
             variants={fadeUp}
             className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight mb-6 text-white"
           >
-            Frontend Engineer <br /> &amp; Digital Content <br />
-            <span className="text-gradient-teal">Creator</span>
+            Frontend Engineer <br /> &amp; Web Application <br />
+            <span className="text-gradient-teal">Developer</span>
           </motion.h1>
 
           <motion.p
@@ -63,7 +63,7 @@ export default function Welcome() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-brand-gray text-base md:text-lg lg:text-xl mb-10 max-w-lg leading-relaxed"
           >
-            I build fast, SEO-focused web applications and create engaging digital content that helps brands grow online.
+            Front-end developer with hands-on production experience in React, Next.js, TypeScript, and Tailwind CSS. Based in Heywood, Manchester, UK.
           </motion.p>
 
           <motion.div
@@ -81,11 +81,12 @@ export default function Welcome() {
             </Link>
             <a
               className="w-full sm:w-auto bg-transparent border border-white/20 hover:border-brand-teal hover:text-brand-teal text-white font-medium py-4 px-8 rounded-full flex items-center justify-center transition-colors"
-              href="/resume.pdf"
+              download="Celebration_Ojingulu_CV.pdf"
+              href="/Celebration_Ojingulu_CV.pdf"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Download Resume
+              Download CV
             </a>
             <Link
               className="w-full sm:w-auto bg-transparent border border-white/20 hover:border-brand-teal hover:text-brand-teal text-white font-medium py-4 px-8 rounded-full flex items-center justify-center transition-colors"
@@ -125,7 +126,18 @@ export default function Welcome() {
               href={siteConfig.links.github}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="GitHub"
+              aria-label="GitHub (Personal)"
+              title="GitHub (Personal)"
+            >
+              <Github size={20} />
+            </a>
+            <a
+              className="w-12 h-12 rounded-full bg-brand-dark border border-brand-teal/30 flex items-center justify-center text-brand-teal hover:bg-brand-teal hover:text-black transition-all shadow-lg"
+              href={siteConfig.links.githubWork}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub (Adesa HQ)"
+              title="GitHub (Adesa HQ)"
             >
               <Github size={20} />
             </a>
@@ -135,6 +147,7 @@ export default function Welcome() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
+              title="LinkedIn"
             >
               <Linkedin size={20} />
             </a>
@@ -144,6 +157,7 @@ export default function Welcome() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp"
+              title="WhatsApp"
             >
               <MessageCircle size={20} />
             </a>

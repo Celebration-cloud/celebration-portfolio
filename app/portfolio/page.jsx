@@ -10,13 +10,12 @@ import {
 } from "@/components/motion/MotionPrimitives";
 import Portfolio from "@/components/Portfolio";
 import BlurText from "@/components/ui/BlurText";
-import VideoShowcase from "@/components/VideoShowcase";
 import { siteConfig } from "@/config/site";
 
 export const metadata = {
   title: "Portfolio — Celebration Ojingulu",
   description:
-    "Selected projects and production work from Adesa HQ and beyond.",
+    "Selected projects and engineering work from Adesa HQ and beyond.",
 };
 
 export default function PortfolioPage() {
@@ -34,7 +33,7 @@ export default function PortfolioPage() {
                 as="span"
                 delay={70}
                 direction="bottom"
-                text="Production"
+                text="Engineering"
               />
               <BlurText
                 as="span"
@@ -48,10 +47,9 @@ export default function PortfolioPage() {
               as="p"
               className="text-base md:text-lg leading-relaxed text-brand-gray max-w-2xl"
             >
-              Frontend Engineer at Adesa HQ building responsive web applications
-              with Next.js, React, and TypeScript. Also producing digital
-              content with DaVinci Resolve. Each project shipped with
-              performance and SEO in mind.
+              Front-End Developer at Adesa HQ building responsive web applications
+              with Next.js, React, and TypeScript. Each project shipped with
+              performance, scalability, and modern UI/UX in mind.
             </StaggerItem>
             <Reveal className="mt-10" delay={0.2}>
               <MotionButton className="inline-block">
@@ -67,9 +65,6 @@ export default function PortfolioPage() {
           </StaggerGroup>
         </div>
       </section>
-
-      {/* Video Production Showcase */}
-      <VideoShowcase />
 
       {/* Web Development Projects */}
       <Portfolio data={siteConfig.portfolio} />
